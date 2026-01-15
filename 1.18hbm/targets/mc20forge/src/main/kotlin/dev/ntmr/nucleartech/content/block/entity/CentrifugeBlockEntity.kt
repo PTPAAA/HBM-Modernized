@@ -29,6 +29,10 @@ import net.minecraft.world.phys.AABB
 import net.minecraftforge.common.capabilities.ForgeCapabilities
 import kotlin.jvm.optionals.getOrNull
 import net.minecraftforge.energy.IEnergyStorage
+import net.minecraftforge.fluids.FluidStack
+import net.minecraftforge.fluids.capability.IFluidHandler
+import net.minecraftforge.fluids.capability.templates.FluidTank
+import net.minecraft.core.Direction
 
 class CentrifugeBlockEntity(pos: BlockPos, state: BlockState) : RecipeMachineBlockEntity<CentrifugeRecipe>(
     NTechBlockEntities.centrifugeBlockEntityType.get(), pos, state),
@@ -114,26 +118,77 @@ class CentrifugeBlockEntity(pos: BlockPos, state: BlockState) : RecipeMachineBlo
     @OptIn(ExperimentalStdlibApi::class)
     override fun findPossibleRecipe() = levelUnchecked.recipeManager.getRecipeFor(NTechRecipeTypes.CENTRIFUGE, this, levelUnchecked).getOrNull()
 
-    override fun matchesRecipe(recipe: CentrifugeRecipe) = recipe.matches(this, levelUnchecked) && insertAllItemsStacked(AccessLimitedInputItemHandler(this, 4..7), recipe.resultsList, true).isEmpty()
+    val inputTank = FluidTank(10000)
+    val outputTank1 = FluidTank(10000)
+    val outputTank2 = FluidTank(10000)
+
+    override fun matchesRecipe(recipe: CentrifugeRecipe): Boolean {
+        if (!recipe.inputFluid.isEmpty) {
+            if (inputTank.fluidAmount < recipe.inputFluid.amount || !inputTank.fluid.isFluidEqual(recipe.inputFluid)) return false
+        }
+        if (!recipe.ingredient.isEmpty) {
+            if (!recipe.matches(this, levelUnchecked)) return false
+        }
+        
+        // Output Checks
+        if (recipe.outputFluids.isNotEmpty()) {
+            val fluid1 = recipe.outputFluids[0]
+            if (outputTank1.fill(fluid1, IFluidHandler.FluidAction.SIMULATE) != fluid1.amount) return false
+            if (recipe.outputFluids.size > 1) {
+                val fluid2 = recipe.outputFluids[1]
+                if (outputTank2.fill(fluid2, IFluidHandler.FluidAction.SIMULATE) != fluid2.amount) return false
+            }
+        }
+        
+        return insertAllItemsStacked(AccessLimitedInputItemHandler(this, 4..7), recipe.resultsList, true).isEmpty()
+    }
 
     override fun processRecipe(recipe: CentrifugeRecipe) {
-        listOf(recipe.ingredient).containerSatisfiesRequirements(subView(3, 4), true)
+        if (!recipe.ingredient.isEmpty) {
+            listOf(recipe.ingredient).containerSatisfiesRequirements(subView(3, 4), true)
+        }
+        if (!recipe.inputFluid.isEmpty) {
+            inputTank.drain(recipe.inputFluid, IFluidHandler.FluidAction.EXECUTE)
+        }
+        
+        if (recipe.outputFluids.isNotEmpty()) {
+            outputTank1.fill(recipe.outputFluids[0], IFluidHandler.FluidAction.EXECUTE)
+            if (recipe.outputFluids.size > 1) {
+                outputTank2.fill(recipe.outputFluids[1], IFluidHandler.FluidAction.EXECUTE)
+            }
+        }
+
         insertAllItemsStacked(AccessLimitedInputItemHandler(this, 4..7), recipe.resultsList, false)
     }
 
     override fun saveAdditional(tag: CompoundTag) {
         super.saveAdditional(tag)
         tag.putInt("Energy", energy)
+        tag.put("InputTank", inputTank.writeToNBT(CompoundTag()))
+        tag.put("OutputTank1", outputTank1.writeToNBT(CompoundTag()))
+        tag.put("OutputTank2", outputTank2.writeToNBT(CompoundTag()))
     }
 
     override fun load(tag: CompoundTag) {
         super.load(tag)
         energy = tag.getInt("Energy")
+        inputTank.readFromNBT(tag.getCompound("InputTank"))
+        outputTank1.readFromNBT(tag.getCompound("OutputTank1"))
+        outputTank2.readFromNBT(tag.getCompound("OutputTank2"))
     }
 
     override fun registerCapabilityHandlers() {
         super.registerCapabilityHandlers()
         registerCapabilityHandler(ForgeCapabilities.ENERGY, this::energyStorage)
+        registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.UP)
+        registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.NORTH)
+        registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.SOUTH)
+        registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.WEST)
+        registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.EAST)
+        // Outputs usually bottom or sides? Let's just expose input everywhere for now or define IO more strictly.
+        // For simplicity, let's say Input is Side/Top, Output is Bottom? 
+        // Or using Composite Fluid Handler?
+        // Let's just replicate the pattern.
     }
 
     companion object {

@@ -212,7 +212,11 @@ object NTechBlocks : NTechRegistry<Block> {
 
     val blastFurnace = register("blast_furnace") { BlastFurnaceBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelLit13).sound(SoundType.METAL)) }
     val combustionGenerator = register("combustion_generator") { CombustionGeneratorBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelLit13).sound(SoundType.METAL)) }
+    val dieselGenerator = register("diesel_generator") { DieselGeneratorBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelLit13).sound(SoundType.METAL)) }
+    val batteryBox = register("battery_box") { BatteryBoxBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
     val electricFurnace = register("electric_furnace") { ElectricFurnaceBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelLit13).sound(SoundType.METAL)) }
+    val electricPress = register("electric_press") { ElectricPressBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelNone).sound(SoundType.METAL)) }
+    val fractionatingColumn = register("fractionating_column") { FractionatingColumnBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().lightLevel(this::getLightLevelLit13).noOcclusion().sound(SoundType.METAL)) }
     val shredder = register("shredder") { ShredderBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
     val assembler = register("assembler") { AssemblerBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }
     val chemPlant = register("chem_plant") { ChemPlantBlock(Properties.of().mapColor(MapColor.METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }

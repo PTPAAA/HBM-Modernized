@@ -142,6 +142,10 @@ object EntityContaminationEffects {
                 entity is Cat
     }
 
+    fun hasGasMask(entity: LivingEntity): Boolean {
+        return entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.HEAD).isGasMask()
+    }
+
     enum class HazardType {
         Radiation,
         Digamma

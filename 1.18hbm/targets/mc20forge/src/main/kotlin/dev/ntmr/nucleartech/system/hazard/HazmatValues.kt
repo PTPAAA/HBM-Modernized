@@ -58,6 +58,11 @@ object HazmatValues : HazmatRegistry {
         return resistance
     }
 
+    fun getResistance(item: Item): Float {
+        if (item !is ArmorItem) return 0F
+        return specialResistances[item] ?: materialResistances[item.material.name] ?: repairItemResistances.firstNotNullOfOrNull { (repairItem, value) -> if (item.material.repairIngredient.test(repairItem.defaultInstance)) value else null } ?: 0F
+    }
+
     override fun registerMaterial(material: ArmorMaterial, fullSetProtection: Float): Boolean {
         if (materialResistances.contains(material.name)) return false
         materialResistances += material.name to fullSetProtection

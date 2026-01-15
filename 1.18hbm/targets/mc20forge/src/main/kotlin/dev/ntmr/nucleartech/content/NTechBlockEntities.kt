@@ -63,7 +63,11 @@ object NTechBlockEntities : NTechRegistry<BlockEntityType<*>> {
     val steamPressHeadBlockEntityType = register("steam_press_top") { createType(::SteamPressBlockEntity, NTechBlocks.steamPressTop.get()) }
     val blastFurnaceBlockEntityType = register("blast_furnace") { createType(::BlastFurnaceBlockEntity, NTechBlocks.blastFurnace.get()) }
     val combustionGeneratorBlockEntityType = register("combustion_generator") { createType(::CombustionGeneratorBlockEntity, NTechBlocks.combustionGenerator.get()) }
+    val dieselGeneratorBlockEntityType = register("diesel_generator") { createType(::DieselGeneratorBlockEntity, NTechBlocks.dieselGenerator.get()) }
+    val batteryBoxBlockEntityType = register("battery_box") { createType(::BatteryBoxBlockEntity, NTechBlocks.batteryBox.get()) }
     val electricFurnaceBlockEntityType = register("electric_furnace") { createType(::ElectricFurnaceBlockEntity, NTechBlocks.electricFurnace.get()) }
+    val electricPressBlockEntityType = register("electric_press") { createType(::ElectricPressBlockEntity, NTechBlocks.electricPress.get()) }
+    val fractionatingColumnBlockEntityType = register("fractionating_column") { createType(::FractionatingColumnBlockEntity, NTechBlocks.fractionatingColumn.get()) }
     val shredderBlockEntityType = register("shredder") { createType(::ShredderBlockEntity, NTechBlocks.shredder.get()) }
     val assemblerBlockEntityType = register("assembler") { createType(::AssemblerBlockEntity, NTechBlocks.assembler.get()) }
     val chemPlantBlockEntityType = register("chem_plant") { createType(::ChemPlantBlockEntity, NTechBlocks.chemPlant.get()) }

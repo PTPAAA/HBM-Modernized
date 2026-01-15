@@ -200,7 +200,11 @@ object NTechBlockItems : NTechRegistry<Item> {
     val steamPress = register("steam_press") { BlockItem(NTechBlocks.steamPressBase.get(), Item.Properties()) }
     val blastFurnace = register("blast_furnace") { BlockItem(NTechBlocks.blastFurnace.get(), Item.Properties()) }
     val combustionGenerator = register("combustion_generator") { BlockItem(NTechBlocks.combustionGenerator.get(), Item.Properties()) }
+    val dieselGenerator = register("diesel_generator") { BlockItem(NTechBlocks.dieselGenerator.get(), Item.Properties()) }
+    val batteryBox = register("battery_box") { BlockItem(NTechBlocks.batteryBox.get(), Item.Properties()) }
     val electricFurnace = register("electric_furnace") { BlockItem(NTechBlocks.electricFurnace.get(), Item.Properties()) }
+    val electricPress = register("electric_press") { BlockItem(NTechBlocks.electricPress.get(), Item.Properties()) }
+    val fractionatingColumn = register("fractionating_column") { BlockItem(NTechBlocks.fractionatingColumn.get(), Item.Properties()) }
     val shredder = register("shredder") { BlockItem(NTechBlocks.shredder.get(), Item.Properties()) }
     val assemblerPlacer = register("assembler") { SpecialModelMultiBlockPlacerItem(NTechBlocks.assembler.get(), ::AssemblerBlockEntity, AssemblerBlock::placeMultiBlock, Item.Properties()) }
     val chemPlantPlacer = register("chem_plant") { SpecialModelMultiBlockPlacerItem(NTechBlocks.chemPlant.get(), ::ChemPlantBlockEntity, ChemPlantBlock::placeMultiBlock, Item.Properties()) }

@@ -8,9 +8,11 @@ package dev.ntmr.nucleartech.client.screen
 import com.mojang.blaze3d.systems.RenderSystem
 import com.mojang.blaze3d.vertex.PoseStack
 import net.minecraft.client.gui.GuiGraphics
+import dev.ntmr.nucleartech.client.rendering.renderGuiFluidTank
 import dev.ntmr.nucleartech.content.block.entity.CentrifugeBlockEntity
 import dev.ntmr.nucleartech.content.menu.CentrifugeMenu
 import dev.ntmr.nucleartech.extensions.tooltipEnergyStorage
+import dev.ntmr.nucleartech.extensions.tooltipFluidTank
 import dev.ntmr.nucleartech.ntm
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
 import net.minecraft.client.renderer.GameRenderer
@@ -58,6 +60,10 @@ class CentrifugeScreen(menu: CentrifugeMenu, playerInventory: Inventory, title: 
                 if (progress <= 0) break
             }
         }
+
+        renderGuiFluidTank(graphics, leftPos + 30, topPos + 20, 16, 50, centrifuge.inputTank)
+        renderGuiFluidTank(graphics, leftPos + 130, topPos + 20, 16, 50, centrifuge.outputTank1)
+        renderGuiFluidTank(graphics, leftPos + 150, topPos + 20, 16, 50, centrifuge.outputTank2)
     }
 
     override fun renderLabels(graphics: GuiGraphics, mouseX: Int, mouseY: Int) {
@@ -67,6 +73,11 @@ class CentrifugeScreen(menu: CentrifugeMenu, playerInventory: Inventory, title: 
     override fun renderTooltip(graphics: GuiGraphics, mouseX: Int, mouseY: Int) {
         super.renderTooltip(graphics, mouseX, mouseY)
         tooltipEnergyStorage(graphics, menu.blockEntity.energyStorage, 9, 13, 16, 35, mouseX, mouseY)
+        
+        val centrifuge = menu.blockEntity
+        tooltipFluidTank(graphics, centrifuge.inputTank, 30, 20, 16, 50, mouseX, mouseY)
+        tooltipFluidTank(graphics, centrifuge.outputTank1, 130, 20, 16, 50, mouseX, mouseY)
+        tooltipFluidTank(graphics, centrifuge.outputTank2, 150, 20, 16, 50, mouseX, mouseY)
     }
 }
 

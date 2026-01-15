@@ -637,6 +637,9 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
         AssemblyRecipeBuilder(NTechBlockItems.shredder.get(), 1, 2000).requires(2 to NTechTags.Items.INGOTS_STEEL, 4 to NTechTags.Items.PLATES_STEEL).requires(NTechItems.motor.get()).requires(2 to NTechTags.Items.WIRES_RED_COPPER).requires(2 to NTechBlockItems.steelBeam.get(), 2 to Items.IRON_BARS).requires(NTechBlockItems.coatedCable.get()).save(consumer)
         AssemblyRecipeBuilder(NTechItems.advancedAlloyPlate.get(), 2, 30).requires(3 to NTechItems.advancedAlloyIngot.get()).save(consumer)
         AssemblyRecipeBuilder(NTechItems.advancedCircuit.get(), 1, 150).requires(NTechItems.enhancedCircuit.get()).requires(4 to NTechTags.Items.WIRES_RED_COPPER, 1 to NTechTags.Items.DUSTS_GOLD, 1 to NTechTags.Items.PLATES_INSULATOR).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.basicCircuit.get(), 1, 100).requires(Tags.Items.DUSTS_REDSTONE).requires(NTechItems.aluminiumWire.get()).requires(NTechTags.Items.PLATES_STEEL).save(consumer, ntm("basic_circuit_assembly"))
+        AssemblyRecipeBuilder(NTechItems.motor.get(), 2, 100).requires(NTechItems.copperCoil.get()).requires(NTechItems.ringCoil.get()).requires(2 to NTechTags.Items.PLATES_IRON).save(consumer, ntm("motor_assembly"))
+        AssemblyRecipeBuilder(Items.PISTON, 1, 100).requires(3 to ItemTags.PLANKS, 4 to Tags.Items.COBBLESTONE).requires(Tags.Items.INGOTS_IRON, Tags.Items.DUSTS_REDSTONE).save(consumer, ntm("piston_assembly"))
         AssemblyRecipeBuilder(NTechItems.aluminiumPlate.get(), 2, 30).requires(3 to NTechTags.Items.INGOTS_ALUMINIUM).save(consumer)
         AssemblyRecipeBuilder(NTechItems.aluminiumWire.get(), 6, 20).requires(NTechTags.Items.INGOTS_ALUMINIUM).save(consumer)
         AssemblyRecipeBuilder(NTechItems.centrifugeElement.get(), 1, 100).requires(4 to NTechTags.Items.PLATES_STEEL, 4 to NTechTags.Items.PLATES_TITANIUM).requires(NTechItems.motor.get()).save(consumer)
@@ -674,6 +677,11 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
 
         ChemRecipeBuilder(100).requires(NTechTags.Items.YELLOWCAKE_URANIUM).requires(NTechTags.Items.DUSTS_FLUORITE, 4).requires(FluidStack(Fluids.WATER, 1000)).results(
             NTechItems.sulfur.get(), 2).results(FluidStack(NTechFluids.uraniumHexafluoride.source.get(), 1200)).save(consumer)
+
+        ChemRecipeBuilder(60).requires(NTechItems.sulfur.get(), 2).requires(FluidStack(Fluids.WATER, 1000)).results(FluidStack(NTechFluids.sulfuricAcid.getSourceFluid(), 1000)).save(consumer)
+        ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.naphtha.getSourceFluid(), 250)).results(NTechItems.polymerIngot.get()).save(consumer, ntm("polymer_from_naphtha"))
+        ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.petroleumGas.getSourceFluid(), 1000)).results(NTechItems.polymerIngot.get()).save(consumer, ntm("polymer_from_petroleum_gas"))
+        ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.lightOil.getSourceFluid(), 1000)).results(FluidStack(NTechFluids.diesel.getSourceFluid(), 1000)).save(consumer, ntm("diesel_from_light_oil"))
     }
 
     private fun centrifuging(actualConsumer: Consumer<FinishedRecipe>) {
@@ -735,7 +743,139 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
         CentrifugeRecipeBuilder(Ingredient.of(Tags.Items.RODS_BLAZE), Items.BLAZE_POWDER.defaultInstance, Items.BLAZE_POWDER.defaultInstance, NTechItems.redPhosphorus.get().defaultInstance, NTechItems.redPhosphorus.get().defaultInstance).unlockedBy("has_blaze_rod", has(Tags.Items.RODS_BLAZE)).save(consumer)
         CentrifugeRecipeBuilder(Ingredient.of(NTechTags.Items.INGOTS_SCHRARANIUM), ItemStack(NTechItems.schrabidiumNugget.get(), 2), NTechItems.schrabidiumNugget.get().defaultInstance, ItemStack(NTechItems.uraniumNugget.get(), 3), ItemStack(NTechItems.plutoniumNugget.get(), 2)).unlockedBy("has_schraranium", has(NTechTags.Items.INGOTS_SCHRARANIUM)).save(consumer)
         CentrifugeRecipeBuilder(Ingredient.of(NTechBlockItems.euphemiumEtchedSchrabidiumCluster.get()), ItemStack(NTechItems.euphemiumNugget.get(), 7), ItemStack(NTechItems.schrabidiumPowder.get(), 4), ItemStack(NTechItems.starmetalIngot.get(), 2), ItemStack(NTechItems.soliniumNugget.get(), 2)).unlockedBy("has_cluster", has(NTechBlockItems.euphemiumEtchedSchrabidiumCluster.get())).save(consumer)
-    }
+        CentrifugeRecipeBuilder(Ingredient.EMPTY)
+            .requires(FluidStack(NTechFluids.uraniumHexafluoride.get(), 1000))
+            .results(FluidStack(NTechFluids.enrichedUraniumHexafluoride.get(), 250))
+            .results(FluidStack(NTechFluids.depletedUraniumHexafluoride.get(), 750))
+            .save(consumer, ntm("uranium_enrichment"))
+
+        // RBMK Rods
+        rbmkRod(NTechItems.rbmkRodUeu, NTechItems.rbmkPelletUeu, consumer)
+        rbmkRod(NTechItems.rbmkRodMeu, NTechItems.rbmkPelletMeu, consumer)
+        rbmkRod(NTechItems.rbmkRodHeu233, NTechItems.rbmkPelletHeu233, consumer)
+        rbmkRod(NTechItems.rbmkRodHeu235, NTechItems.rbmkPelletHeu235, consumer)
+        rbmkRod(NTechItems.rbmkRodThMeu, NTechItems.rbmkPelletThMeu, consumer)
+        rbmkRod(NTechItems.rbmkRodLep, NTechItems.rbmkPelletLep, consumer)
+        rbmkRod(NTechItems.rbmkRodMep, NTechItems.rbmkPelletMep, consumer)
+        rbmkRod(NTechItems.rbmkRodHep239, NTechItems.rbmkPelletHep239, consumer)
+        rbmkRod(NTechItems.rbmkRodHep241, NTechItems.rbmkPelletHep241, consumer)
+        rbmkRod(NTechItems.rbmkRodLea, NTechItems.rbmkPelletLea, consumer)
+        rbmkRod(NTechItems.rbmkRodMea, NTechItems.rbmkPelletMea, consumer)
+        rbmkRod(NTechItems.rbmkRodHea241, NTechItems.rbmkPelletHea241, consumer)
+        rbmkRod(NTechItems.rbmkRodHea242, NTechItems.rbmkPelletHea242, consumer)
+        rbmkRod(NTechItems.rbmkRodMen, NTechItems.rbmkPelletMen, consumer)
+        rbmkRod(NTechItems.rbmkRodHen, NTechItems.rbmkPelletHen, consumer)
+        rbmkRod(NTechItems.rbmkRodMox, NTechItems.rbmkPelletMox, consumer)
+        rbmkRod(NTechItems.rbmkRodLes, NTechItems.rbmkPelletLes, consumer)
+        rbmkRod(NTechItems.rbmkRodMes, NTechItems.rbmkPelletMes, consumer)
+        rbmkRod(NTechItems.rbmkRodHes, NTechItems.rbmkPelletHes, consumer)
+        rbmkRod(NTechItems.rbmkRodLeaus, NTechItems.rbmkPelletLeaus, consumer)
+        rbmkRod(NTechItems.rbmkRodHeaus, NTechItems.rbmkPelletHeaus, consumer)
+        rbmkRod(NTechItems.rbmkRodPo210Be, NTechItems.rbmkPelletPo210Be, consumer)
+        rbmkRod(NTechItems.rbmkRodRa226Be, NTechItems.rbmkPelletRa226Be, consumer)
+        rbmkRod(NTechItems.rbmkRodPu238Be, NTechItems.rbmkPelletPu238Be, consumer)
+        rbmkRod(NTechItems.rbmkRodBalefireGold, NTechItems.rbmkPelletBalefireGold, consumer)
+        rbmkRod(NTechItems.rbmkRodFlashlead, NTechItems.rbmkPelletFlashlead, consumer)
+        rbmkRod(NTechItems.rbmkRodBalefire, NTechItems.rbmkPelletBalefire, consumer)
+        rbmkRod(NTechItems.rbmkRodZfbBismuth, NTechItems.rbmkPelletZfbBismuth, consumer)
+        rbmkRod(NTechItems.rbmkRodZfbPu241, NTechItems.rbmkPelletZfbPu241, consumer)
+        rbmkRod(NTechItems.rbmkRodZfbAmMix, NTechItems.rbmkPelletZfbAmMix, consumer)
+        rbmkRod(NTechItems.rbmkRodZfbAmMix, NTechItems.rbmkPelletZfbAmMix, consumer)
+        rbmkRod(NTechItems.rbmkRodDrx, NTechItems.rbmkPelletDrx, consumer)
+
+        // RBMK Rod Disassembly (Centrifuge)
+        // Uranium
+        rbmkRodDisassembly(NTechItems.rbmkRodUeu, NTechItems.hotDepletedUraniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodMeu, NTechItems.hotDepletedUraniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHeu233, NTechItems.hotDepletedUraniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHeu235, NTechItems.hotDepletedUraniumFuel, consumer)
+        
+        // Thorium
+        rbmkRodDisassembly(NTechItems.rbmkRodThMeu, NTechItems.hotDepletedThoriumFuel, consumer)
+        
+        // Plutonium
+        rbmkRodDisassembly(NTechItems.rbmkRodLep, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodMep, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHep239, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHep241, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        
+        // Other (mapping to nearest approximate waste or new types if they existed)
+        // For now mapping Schrabidium/Others to Waste or specific types if available.
+        // NTechItems has: hotDepletedUraniumFuel, hotDepletedThoriumFuel, hotDepletedPlutoniumFuel, hotDepletedMOXFuel, hotDepletedSchrabidiumFuel
+        
+        rbmkRodDisassembly(NTechItems.rbmkRodLea, NTechItems.hotDepletedPlutoniumFuel, consumer) // Americium -> Plutonium waste? Or generic? Using Plutonium for now.
+        rbmkRodDisassembly(NTechItems.rbmkRodMea, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHea241, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHea242, NTechItems.hotDepletedPlutoniumFuel, consumer)
+
+        rbmkRodDisassembly(NTechItems.rbmkRodMox, NTechItems.hotDepletedMOXFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodMen, NTechItems.hotDepletedPlutoniumFuel, consumer) // Neptunium
+        rbmkRodDisassembly(NTechItems.rbmkRodHen, NTechItems.hotDepletedPlutoniumFuel, consumer)
+        
+        rbmkRodDisassembly(NTechItems.rbmkRodLes, NTechItems.hotDepletedSchrabidiumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodMes, NTechItems.hotDepletedSchrabidiumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHes, NTechItems.hotDepletedSchrabidiumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodLeaus, NTechItems.hotDepletedSchrabidiumFuel, consumer)
+        rbmkRodDisassembly(NTechItems.rbmkRodHeaus, NTechItems.hotDepletedSchrabidiumFuel, consumer)
+
+        // Fuel Reprocessing
+        // Uranium
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.depletedUraniumFuel.get()), ItemStack(NTechItems.uraniumNugget.get(), 2), ItemStack(NTechItems.nuclearWaste.get(), 10), ItemStack(NTechItems.plutoniumNugget.get(), 1), ItemStack(NTechItems.u238Nugget.get(), 2))
+            .unlockedBy("has_depleted_uranium_fuel", has(NTechItems.depletedUraniumFuel.get()))
+            .save(consumer, ntm("reprocess_depleted_uranium_fuel"))
+        
+        // Thorium
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.depletedThoriumFuel.get()), ItemStack(NTechItems.th232Nugget.get(), 2), ItemStack(NTechItems.nuclearWaste.get(), 10), ItemStack(NTechItems.uraniumNugget.get(), 1), ItemStack(NTechItems.leadNugget.get(), 1))
+            .unlockedBy("has_depleted_thorium_fuel", has(NTechItems.depletedThoriumFuel.get()))
+            .save(consumer, ntm("reprocess_depleted_thorium_fuel"))
+
+        // Plutonium
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.depletedPlutoniumFuel.get()), ItemStack(NTechItems.plutoniumNugget.get(), 1), ItemStack(NTechItems.nuclearWaste.get(), 20), ItemStack(NTechItems.pu240Nugget.get(), 1), ItemStack(NTechItems.americium241Nugget.get(), 1))
+            .unlockedBy("has_depleted_plutonium_fuel", has(NTechItems.depletedPlutoniumFuel.get()))
+            .save(consumer, ntm("reprocess_depleted_plutonium_fuel"))
+            
+        // MOX
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.depletedMOXFuel.get()), ItemStack(NTechItems.plutoniumNugget.get(), 1), ItemStack(NTechItems.nuclearWaste.get(), 15), ItemStack(NTechItems.uraniumNugget.get(), 1), ItemStack(NTechItems.u238Nugget.get(), 1))
+            .unlockedBy("has_depleted_mox_fuel", has(NTechItems.depletedMOXFuel.get()))
+            .save(consumer, ntm("reprocess_depleted_mox_fuel"))
+
+        // Schrabidium
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.depletedSchrabidiumFuel.get()), ItemStack(NTechItems.schrabidiumNugget.get(), 1), ItemStack(NTechItems.nuclearWaste.get(), 30), ItemStack(NTechItems.soliniumNugget.get(), 1))
+            .unlockedBy("has_depleted_schrabidium_fuel", has(NTechItems.depletedSchrabidiumFuel.get()))
+            .save(consumer, ntm("reprocess_depleted_schrabidium_fuel"))
+
+        // Nuclear Waste -> Generic reprocessing
+        CentrifugeRecipeBuilder(Ingredient.of(NTechItems.nuclearWaste.get()), ItemStack(NTechItems.lead209Nugget.get(), 1), ItemStack(NTechItems.strontium90Nugget.get(), 1), ItemStack(NTechItems.beholderDroppings.get(), 1), ItemStack(NTechItems.radium226Nugget.get(), 1))
+            .unlockedBy("has_nuclear_waste", has(NTechItems.nuclearWaste.get()))
+            .save(consumer, ntm("reprocess_nuclear_waste"))
+
+        // Hot Depleted Fuels (Cooling)
+        // For now, simple crafting or waiting? Let's add simple "cooling" recipe via Assembly or just assume they cool down in a pool (which doesn't exist yet).
+        // Let's enable crafting them into cold versions for gameplay flow if 'Spent Fuel Pool' isn't implemented.
+        ShapelessRecipeBuilder(NTechItems.depletedUraniumFuel.get(), 1)
+            .requires(NTechItems.hotDepletedUraniumFuel.get())
+            .requires(Items.WATER_BUCKET)
+            .unlockedBy("has_hot_depleted_uranium_fuel", has(NTechItems.hotDepletedUraniumFuel.get()))
+            .save(consumer, ntm("cool_depleted_uranium_fuel"))
+            
+        ShapelessRecipeBuilder(NTechItems.depletedThoriumFuel.get(), 1)
+            .requires(NTechItems.hotDepletedThoriumFuel.get())
+            .requires(Items.WATER_BUCKET)
+            .unlockedBy("has_hot_depleted_thorium_fuel", has(NTechItems.hotDepletedThoriumFuel.get()))
+            .save(consumer, ntm("cool_depleted_thorium_fuel"))
+            
+        ShapelessRecipeBuilder(NTechItems.depletedPlutoniumFuel.get(), 1)
+            .requires(NTechItems.hotDepletedPlutoniumFuel.get())
+            .requires(Items.WATER_BUCKET)
+            .unlockedBy("has_hot_depleted_plutonium_fuel", has(NTechItems.hotDepletedPlutoniumFuel.get()))
+            .save(consumer, ntm("cool_depleted_plutonium_fuel"))
+
+        ShapelessRecipeBuilder(NTechItems.depletedMOXFuel.get(), 1)
+            .requires(NTechItems.hotDepletedMOXFuel.get())
+            .requires(Items.WATER_BUCKET)
+            .unlockedBy("has_hot_depleted_mox_fuel", has(NTechItems.hotDepletedMOXFuel.get()))
+            .save(consumer, ntm("cool_depleted_mox_fuel"))
+            
 
     private fun ringCoilRecipe(ringCoil: ItemLike, coil: ItemLike, consumer: Consumer<FinishedRecipe>) {
         ShapedRecipeBuilder.shaped(ringCoil, 2).define('C', coil).define('P', NTechTags.Items.PLATES_IRON).pattern(" C ").pattern("CPC").pattern(" C ").group(ringCoil.asItem().registryName!!.path).unlockedBy("has_coil", has(coil)).save(consumer, ringCoil.asItem().registryName!!.appendToPath("_with_iron_plate"))
@@ -766,6 +906,26 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
 
     private fun rbmkRod(rod: ItemLike, billet: TagKey<Item>, consumer: Consumer<FinishedRecipe>) {
         ShapelessRecipeBuilder(rod, 1).requires(NTechItems.emptyRBMKRod.get()).requires(billet, 8).unlockedBy("has_billet", has(billet)).save(consumer)
+    }
+
+    private fun rbmkRodDisassembly(rod: ItemLike, depletedFuel: ItemLike, consumer: Consumer<FinishedRecipe>) {
+        // Disassemble Rod -> Empty Rod + Fuel
+        // Warning: Accepts non-depleted rods too.
+        ShapelessRecipeBuilder(NTechItems.emptyRBMKRod.get(), 1)
+            .requires(rod)
+            .unlockedBy("has_rod", has(rod))
+            .save(consumer, ntm("disassemble_${rod.asItem().registryName!!.path}"))
+            
+        // We also need the fuel output. But ShapelessRecipe only has one output.
+        // Option 1: Recipe outputs Empty Rod, and we rely on a container item logic? (Not implemented)
+        // Option 2: Recipe outputs Hot Fuel, but consumes Rod? Then we lose the steel rod.
+        // Option 3: Standard crafting is 1 output. We need a way to get 2 items.
+        // Solution: Use Centrifuge! Centrifuge can have multiple outputs.
+        // This solves the NBT issue slightly better (as Centrifuges assume processing).
+        
+        CentrifugeRecipeBuilder(Ingredient.of(rod), ItemStack(NTechItems.emptyRBMKRod.get()), ItemStack(depletedFuel))
+            .unlockedBy("has_rod", has(rod))
+            .save(consumer, ntm("centrifuge_disassemble_${rod.asItem().registryName!!.path}"))
     }
 
     private fun ingotFromMeteorOre(ingredient: ItemLike, result: ItemLike, experience: Float, consumer: Consumer<FinishedRecipe>) {

@@ -42,7 +42,11 @@ object NTechMenus : NTechRegistry<MenuType<*>> {
     val steamPressMenu = register("steam_press") { IForgeMenuType.create(PressMenu::fromNetwork) }
     val blastFurnaceMenu = register("blast_furnace") { IForgeMenuType.create(BlastFurnaceMenu::fromNetwork) }
     val combustionGeneratorMenu = register("combustion_generator") { IForgeMenuType.create(CombustionGeneratorMenu::fromNetwork) }
+    val dieselGeneratorMenu = register("diesel_generator") { IForgeMenuType.create(DieselGeneratorMenu::fromNetwork) }
+    val batteryBoxMenu = register("battery_box") { IForgeMenuType.create(BatteryBoxMenu::fromNetwork) }
     val electricFurnaceMenu = register("electric_furnace") { IForgeMenuType.create(ElectricFurnaceMenu::fromNetwork) }
+    val electricPressMenu = register("electric_press") { IForgeMenuType.create(ElectricPressMenu::fromNetwork) }
+    val fractionatingColumnMenu = register("fractionating_column") { IForgeMenuType.create(FractionatingColumnMenu::fromNetwork) }
     val shredderMenu = register("shredder") { IForgeMenuType.create(ShredderMenu::fromNetwork) }
     val assemblerMenu = register("assembler") { IForgeMenuType.create(AssemblerMenu::fromNetwork) }
     val chemPlantMenu = register("chem_plant") { IForgeMenuType.create(ChemPlantMenu::fromNetwork) }
