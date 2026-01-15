@@ -38,7 +38,7 @@ class DieselGeneratorBlockEntity(pos: BlockPos, state: BlockState) : BaseMachine
         get() = energyStorage.energyStored
         private set(value) { energyStorage.energy = value }
         
-    val tank = object : NTechFluidTank(MAX_FLUID, { NTechFluids.diesel.getSourceFluid().isSame(it.fluid) || NTechFluids.oil.getSourceFluid().isSame(it.fluid) }) {
+    val tank = object : NTechFluidTank(MAX_FLUID, { NTechFluids.diesel.source.get().isSame(it.fluid) || NTechFluids.oil.source.get().isSame(it.fluid) }) {
          override fun drain(resource: FluidStack, action: IFluidHandler.FluidAction) = FluidStack.EMPTY
          override fun drain(maxDrain: Int, action: IFluidHandler.FluidAction) = FluidStack.EMPTY
     }
@@ -86,7 +86,7 @@ class DieselGeneratorBlockEntity(pos: BlockPos, state: BlockState) : BaseMachine
         if (energy < MAX_ENERGY) {
             if (tank.fluidAmount > 0) {
                 // Determine fuel value
-                val fuelValue = if (NTechFluids.diesel.getSourceFluid().isSame(tank.fluid.fluid)) 200 else 100 // Diesel better than Oil
+                val fuelValue = if (NTechFluids.diesel.source.get().isSame(tank.fluid.fluid)) 200 else 100 // Diesel better than Oil
                 
                 // Consumption rate? 
                 // Let's consume 1 mb per tick for continuous generation?

@@ -166,6 +166,26 @@ object NTechBlockItems : NTechRegistry<Item> {
     val decoRbmkBlock = register("deco_rbmk") { BlockItem(NTechBlocks.decoRbmkBlock.get(), Item.Properties()) }
     val decoRbmkSmoothBlock = register("deco_rbmk_smooth") { BlockItem(NTechBlocks.decoRbmkSmoothBlock.get(), Item.Properties()) }
 
+    // Phase 21
+    val concrete = register("concrete") { BlockItem(NTechBlocks.concrete.get(), Item.Properties()) }
+    val concreteBrick = register("concrete_brick") { BlockItem(NTechBlocks.concreteBrick.get(), Item.Properties()) }
+    // Colored Concrete
+    // Note: Iterating dye colors in object init is unsafe if registry order matters excessively, but standard for mass registration
+    // We need to store references to registers if we want to use them later, but for items it's usually fine
+    val concreteColored = dev.ntmr.nucleartech.content.NTechBlocks.concreteColored.map { (color, blockReg) ->
+        register("concrete_${color.name.lowercase()}") { BlockItem(blockReg.get(), Item.Properties()) }
+    }
+    
+    val reinforcedGlass = register("reinforced_glass") { BlockItem(NTechBlocks.reinforcedGlass.get(), Item.Properties()) }
+    val industrialBlock = register("industrial_block") { BlockItem(NTechBlocks.industrialBlock.get(), Item.Properties()) }
+    val labTile = register("lab_tile") { BlockItem(NTechBlocks.labTile.get(), Item.Properties()) }
+
+    val warningTape = register("warning_tape") { BlockItem(NTechBlocks.warningTape.get(), Item.Properties()) }
+
+    // Phase 22
+    val conveyor = register("conveyor") { BlockItem(NTechBlocks.conveyor.get(), Item.Properties()) }
+    val fluidPipe = register("fluid_pipe") { BlockItem(NTechBlocks.fluidPipe.get(), Item.Properties()) }
+
     val steelBeam = register("steel_beam") { BlockItem(NTechBlocks.steelBeam.get(), Item.Properties()) }
     val steelScaffold = register("steel_scaffold") { BlockItem(NTechBlocks.steelScaffold.get(), Item.Properties()) }
     val steelGrate = register("steel_grate") { BlockItem(NTechBlocks.steelGrate.get(), Item.Properties()) }
@@ -272,5 +292,26 @@ object NTechBlockItems : NTechRegistry<Item> {
     val cyclotron = register("cyclotron") { BlockItem(NTechBlocks.cyclotron.get(), Item.Properties()) }
     val fel = register("fel") { BlockItem(NTechBlocks.fel.get(), Item.Properties()) }
     val breedingReactor = register("breeding_reactor") { BlockItem(NTechBlocks.breedingReactor.get(), Item.Properties()) }
+    val blackHoleBomb = register("black_hole_bomb") { BlockItem(NTechBlocks.blackHoleBomb.get(), Item.Properties()) }
+    val lhc = register("lhc") { BlockItem(NTechBlocks.lhc.get(), Item.Properties()) }
+    val prototype = register("prototype") { BlockItem(NTechBlocks.prototype.get(), Item.Properties()) }
+    val tsarBomba = register("tsar_bomba") { BlockItem(NTechBlocks.tsarBomba.get(), Item.Properties()) }
+    
+    val oreWasher = register("ore_washer") { BlockItem(NTechBlocks.oreWasher.get(), Item.Properties()) }
+    val thermalCentrifuge = register("thermal_centrifuge") { BlockItem(NTechBlocks.thermalCentrifuge.get(), Item.Properties()) }
+    val crystallizer = register("crystallizer") { BlockItem(NTechBlocks.crystallizer.get(), Item.Properties()) }
+    val crackingTower = register("cracking_tower") { BlockItem(NTechBlocks.crackingTower.get(), Item.Properties()) }
+    val catalyticReformer = register("catalytic_reformer") { BlockItem(NTechBlocks.catalyticReformer.get(), Item.Properties()) }
+    val arcFurnace = register("arc_furnace") { BlockItem(NTechBlocks.arcFurnace.get(), Item.Properties()) }
+    
+    val ruinedReactorCore = register("ruined_reactor_core") { BlockItem(NTechBlocks.ruinedReactorCore.get(), Item.Properties()) }
+    val spaceshipHull = register("spaceship_hull") { BlockItem(NTechBlocks.spaceshipHull.get(), Item.Properties()) }
+    val dungeonBrick = register("dungeon_brick") { BlockItem(NTechBlocks.dungeonBrick.get(), Item.Properties()) }
+
     val taint = register("taint") { BlockItem(NTechBlocks.taint.get(), Item.Properties()) }
+    val radHotspot = register("rad_hotspot") { BlockItem(NTechBlocks.radHotspot.get(), Item.Properties()) }
+
+    // Phase 25
+    val crashedUFO = register("crashed_ufo") { BlockItem(NTechBlocks.crashedUFO.get(), Item.Properties()) }
+    val teleporter = register("teleporter") { BlockItem(NTechBlocks.teleporter.get(), Item.Properties()) }
 }

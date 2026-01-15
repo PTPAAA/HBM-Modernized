@@ -33,6 +33,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties
 import net.minecraftforge.common.capabilities.ForgeCapabilities
 import java.util.*
 import kotlin.math.ceil
+import net.minecraftforge.common.util.Constants
 
 class ElectricFurnaceBlockEntity(pos: BlockPos, state: BlockState) : BaseMachineBlockEntity(
     NTechBlockEntities.electricFurnaceBlockEntityType.get(), pos, state),
@@ -141,6 +142,7 @@ class ElectricFurnaceBlockEntity(pos: BlockPos, state: BlockState) : BaseMachine
         if (canProcess(1, 3)) {
              // Share consumption? Or double consumption? 
              // Usually dual-smelters consume Energy PER OPERATION.
+             // Implied doubled consumption if both run.
              if (energy >= consumption) {
                 energy -= consumption
                 progress2++
@@ -203,8 +205,6 @@ class ElectricFurnaceBlockEntity(pos: BlockPos, state: BlockState) : BaseMachine
     }
 
     // RecipeHolder Implementations
-    private val recipesUsed = mutableMapOf<Constants.RecipeKey, Int>() // Simplification map
-    // Using Object2IntOpenHashMap<ResourceLocation> like original
     private val recipesUsedMap = it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap<net.minecraft.resources.ResourceLocation>()
 
     override fun setRecipeUsed(recipe: Recipe<*>?) {
@@ -215,7 +215,11 @@ class ElectricFurnaceBlockEntity(pos: BlockPos, state: BlockState) : BaseMachine
 
     override fun getRecipeUsed(): Recipe<*>? = null
 
-    override fun awardUsedRecipes(player: Player, items: MutableList<ItemStack>) {} // Vanilla logic handles this mostly?
+    override fun awardUsedRecipes(player: Player, items: MutableList<ItemStack>) {} 
+    
+    override fun clearUsedRecipes() {
+         recipesUsedMap.clear()
+    }
 
     override fun getExperienceToDrop(player: Player?): Float =
         recipesUsedMap.object2IntEntrySet().mapNotNull { (recipeID, amount) ->

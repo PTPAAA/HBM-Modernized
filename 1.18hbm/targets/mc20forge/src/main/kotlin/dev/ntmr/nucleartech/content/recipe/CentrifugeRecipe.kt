@@ -23,6 +23,7 @@ import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.item.crafting.RecipeSerializer
 import net.minecraft.world.item.crafting.ShapedRecipe
 import net.minecraft.world.level.Level
+import net.minecraftforge.fluids.FluidStack
 
 class CentrifugeRecipe(
     val recipeID: ResourceLocation,

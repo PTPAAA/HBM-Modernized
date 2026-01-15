@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.state.BlockState
 
-class FusionCoreBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(NTechBlockEntities.fusionCore.get(), pos, state) {
+class FusionCoreBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(NTechBlockEntities.fusionCoreBlockEntityType.get(), pos, state) {
 
     private val energy = LudicrousEnergyStorage(100_000_000, 1_000_000, 1_000_000)
     private var isStructureValid = false
@@ -24,17 +24,13 @@ class FusionCoreBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(NTec
             }
             
             if (blockEntity.isStructureValid) {
-                // Logic for running the reactor goes here
-                // 1. Consume Fuel
-                // 2. Generate Plasma/Heat
-                // 3. Generate Energy (via steam/turbine or direct?) -> Usually heat to steam
+                // Logic
             }
         }
     }
 
     private fun checkStructure() {
         val level = this.level ?: return
-        // Minimal placeholder check: Just look for magnets around
         var magnetCount = 0
         val radius = 3
         for (x in -radius..radius) {
@@ -46,18 +42,18 @@ class FusionCoreBlockEntity(pos: BlockPos, state: BlockState) : BlockEntity(NTec
             }
         }
         
-        isStructureValid = magnetCount >= 8 // Arbitrary requirement for now
+        isStructureValid = magnetCount >= 8 
     }
     
     override fun saveAdditional(tag: CompoundTag) {
         super.saveAdditional(tag)
-        tag.put("Energy", energy.serializeNBT())
+        tag.putInt("Energy", energy.energyStored)
         tag.putLong("PlasmaTemp", plasmaTemp)
     }
 
     override fun load(tag: CompoundTag) {
         super.load(tag)
-        if (tag.contains("Energy")) energy.deserializeNBT(tag.get("Energy"))
+        if (tag.contains("Energy")) energy.receiveEnergy(tag.getInt("Energy"), false)
         plasmaTemp = tag.getLong("PlasmaTemp")
     }
 }

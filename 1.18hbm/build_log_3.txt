@@ -1,0 +1,547 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.12.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :sorcerer:sorcerer-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :sorcerer:sorcerer-api:compileKotlin UP-TO-DATE
+> Task :sorcerer:sorcerer-api:compileJava NO-SOURCE
+> Task :sorcerer:sorcerer-api:processResources NO-SOURCE
+> Task :sorcerer:sorcerer-api:classes UP-TO-DATE
+> Task :sorcerer:sorcerer-api:jar UP-TO-DATE
+> Task :sorcerer:sorcerer-compiler-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :sorcerer:sorcerer-compiler-plugin:compileKotlin UP-TO-DATE
+> Task :sorcerer:sorcerer-compiler-plugin:compileJava NO-SOURCE
+> Task :sorcerer:sorcerer-compiler-plugin:processResources UP-TO-DATE
+> Task :sorcerer:sorcerer-compiler-plugin:classes UP-TO-DATE
+> Task :sorcerer:sorcerer-compiler-plugin:jar UP-TO-DATE
+> Task :sorcerer:sorcerer-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :sorcerer:sorcerer-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :sorcerer:sorcerer-gradle-plugin:compileJava NO-SOURCE
+> Task :sorcerer:sorcerer-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :sorcerer:sorcerer-gradle-plugin:processResources UP-TO-DATE
+> Task :sorcerer:sorcerer-gradle-plugin:classes UP-TO-DATE
+> Task :sorcerer:sorcerer-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :
+Mod version: 0.0.20.1-snapshot20260115
+
+> Configure project :targets:mc12forge
+Java: 21.0.8 JVM: 21.0.8+9-LTS(Microsoft) Arch: amd64
+
+> Configure project :targets:mc18forge
+Java: 21.0.8 JVM: 21.0.8+9-LTS(Microsoft) Arch: amd64
+Currently running integration for JEI
+
+> Configure project :targets:mc20forge
+Java: 21.0.8 JVM: 21.0.8+9-LTS(Microsoft) Arch: amd64
+Currently running integration for JEI
+
+> Task :targets:mc20forge:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :targets:mc20forge:compileApiKotlin UP-TO-DATE
+> Task :targets:mc20forge:compileApiJava NO-SOURCE
+> Task :targets:mc20forge:processApiResources NO-SOURCE
+> Task :targets:mc20forge:apiClasses UP-TO-DATE
+> Task :targets:mc20forge:processResources UP-TO-DATE
+
+> Task :targets:mc20forge:compileKotlin
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/client/screen/FractionatingColumnScreen.kt:103:6 Syntax error: Missing '}.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:14:58 Conflicting import: imported name 'CyclotronBlockEntity' is ambiguous.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:26:58 Conflicting import: imported name 'CyclotronBlockEntity' is ambiguous.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:42 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:42 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:71 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:73 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:73 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:89:86 Unresolved reference 'DieselGeneratorBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:37 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:37 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:61 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:63 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:63 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:90:76 Unresolved reference 'BatteryBoxBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:40 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:40 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:67 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:69 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:69 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:92:82 Unresolved reference 'ElectricPressBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:46 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:46 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:79 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:81 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:81 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:93:94 Unresolved reference 'FractionatingColumnBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:46 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:46 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:79 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:81 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:81 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:127:94 Unresolved reference 'ForcefieldGeneratorBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:37 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:37 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:61 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:63 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:63 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockEntities.kt:163:76 Inapplicable candidate(s): constructor(pos: BlockPos, state: BlockState): ArcFurnaceBlockEntity
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockItems.kt:181:9 Conflicting declarations:
+val labTile: RegistryObject<BlockItem>
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlockItems.kt:182:9 Conflicting declarations:
+val labTile: RegistryObject<BlockItem>
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:32:59 Unresolved reference 'FusionCoreBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:33:59 Unresolved reference 'WatzCoreBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:34:59 Unresolved reference 'FusionCoreBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:35:59 Unresolved reference 'FusionMagnetBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:36:59 Unresolved reference 'FusionHeaterBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:37:59 Unresolved reference 'WatzCoreBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:38:59 Unresolved reference 'WatzStructureBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:39:59 Unresolved reference 'WatzFuelInjectBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:248:174 Unresolved reference 'getLightLevelNone'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:313:31 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:313:66 Unresolved reference 'ForcefieldGeneratorBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:315:22 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:315:48 Unresolved reference 'FusionCoreBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:316:24 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:316:52 Unresolved reference 'FusionMagnetBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:317:24 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:317:52 Unresolved reference 'FusionHeaterBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:319:20 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:319:44 Unresolved reference 'WatzCoreBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:320:25 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:320:54 Unresolved reference 'WatzStructureBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:321:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:321:57 Unresolved reference 'WatzFuelInjectBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:323:23 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:323:50 Unresolved reference 'OilRefineryBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:324:29 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:324:62 Unresolved reference 'RefineryStructureBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:326:20 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechBlocks.kt:326:43 Unresolved reference 'LandmineBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:31:31 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:31:31 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:31:65 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:31:86 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:31:91 Unresolved reference 'BunkerBusterMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:32:37 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:32:37 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:32:78 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:32:99 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:32:104 Unresolved reference 'StrongBunkerBusterMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:33:24 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:33:24 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:33:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:33:71 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:33:76 Unresolved reference 'BurstMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:34:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:34:26 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:34:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:34:75 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:34:80 Unresolved reference 'ClusterMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:35:32 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:35:32 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:35:67 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:35:88 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:35:93 Unresolved reference 'StrongClusterMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:36:24 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:36:24 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:36:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:36:71 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:36:76 Unresolved reference 'DrillMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:37:21 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:37:21 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:37:44 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:37:65 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:37:70 Unresolved reference 'HEMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:38:27 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:38:27 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:38:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:38:75 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:38:80 Unresolved reference 'StrongHEMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:39:29 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:39:29 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:39:60 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:39:81 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:39:86 Unresolved reference 'IncendiaryMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:40:35 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:40:35 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:40:73 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:40:94 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:40:99 Unresolved reference 'StrongIncendiaryMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:41:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:41:26 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:41:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:41:75 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:41:80 Unresolved reference 'InfernoMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:42:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:42:26 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:42:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:42:75 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:42:80 Unresolved reference 'NuclearMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:43:23 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:43:23 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:43:48 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:43:69 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:43:74 Unresolved reference 'RainMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:44:27 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:44:27 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:44:56 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:44:77 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:44:82 Unresolved reference 'TectonicMissile'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:56:21 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:56:21 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:56:44 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:56:65 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:56:70 Unresolved reference 'GunTurretEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:57:25 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:57:25 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:57:52 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:57:73 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:57:78 Unresolved reference 'MissileTurretEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:60:21 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:60:21 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:60:44 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:60:65 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:60:70 Unresolved reference 'CyberCrabEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:63:21 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:63:21 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:63:44 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:63:65 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:63:70 Unresolved reference 'BlackHoleEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:65:16 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:65:16 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:65:33 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:65:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:65:59 Unresolved reference 'ICBMEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:66:16 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:66:16 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:66:33 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:66:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:66:59 Unresolved reference 'MIRVEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:68:16 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:68:16 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:68:33 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:68:54 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:68:59 Unresolved reference 'CIWSTurretEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:69:23 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:69:23 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:69:48 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:69:69 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:69:74 Unresolved reference 'LaserTurretEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:70:24 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:70:24 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:70:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:70:71 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:70:76 Unresolved reference 'HeavyRailgunTurretEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:72:27 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:72:27 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:72:56 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:72:77 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechEntities.kt:72:82 Unresolved reference 'DoomsdayMissileEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:21:33 Conflicting import: imported name 'Item' is ambiguous.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:31:33 Conflicting import: imported name 'Item' is ambiguous.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:636:75 Argument type mismatch: actual type is 'Level', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:636:82 Argument type mismatch: actual type is 'Player', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:658:9 Conflicting declarations:
+val radAway: RegistryObject<RadAwayItem>
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:664:79 Argument type mismatch: actual type is 'Level', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:664:86 Argument type mismatch: actual type is 'Player', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:675:75 Argument type mismatch: actual type is 'Level', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:675:82 Argument type mismatch: actual type is 'Player', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:881:9 Conflicting declarations:
+val radAway: RegistryObject<RadAwayItem>
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:921:80 Argument type mismatch: actual type is 'ArmorMaterial', but 'NTechArmorMaterials' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:922:76 Argument type mismatch: actual type is 'ArmorMaterial', but 'NTechArmorMaterials' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechItems.kt:923:70 Argument type mismatch: actual type is 'ArmorMaterial', but 'NTechArmorMaterials' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:31 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:31 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:60 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:77 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:77 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:45:84 Unresolved reference 'DieselGeneratorMenu'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:26 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:67 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:67 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:46:74 Unresolved reference 'BatteryBoxMenu'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:29 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:29 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:56 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:73 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:73 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:48:80 Unresolved reference 'ElectricPressMenu'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:35 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:35 Not enough information to infer type argument for 'R'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:68 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:85 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:85 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/NTechMenus.kt:49:92 Unresolved reference 'FractionatingColumnMenu'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/BatteryBoxBlock.kt:56:141 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/BatteryBoxBlock.kt:56:141 Not enough information to infer type argument for 'X'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/DieselGeneratorBlock.kt:88:141 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/DieselGeneratorBlock.kt:88:141 Not enough information to infer type argument for 'X'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/ElectricPressBlock.kt:56:141 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/ElectricPressBlock.kt:56:141 Not enough information to infer type argument for 'X'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/FractionatingColumnBlock.kt:59:141 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/FractionatingColumnBlock.kt:59:141 Not enough information to infer type argument for 'X'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:26:1 Class 'BatteryBoxBlockEntity' is not abstract and does not implement abstract members:
+val shouldPlaySoundLoop: Boolean
+val soundLoopEvent: SoundEvent
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:81:23 Unresolved reference 'check'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:82:59 Destructuring of type 'Table.Cell<BlockPos!, Direction!, List<IOConfiguration>!>!' requires operator function 'component1()'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:82:59 Destructuring of type 'Table.Cell<BlockPos!, Direction!, List<IOConfiguration>!>!' requires operator function 'component2()'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:82:59 Destructuring of type 'Table.Cell<BlockPos!, Direction!, List<IOConfiguration>!>!' requires operator function 'component3()'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/BatteryBoxBlockEntity.kt:90:29 Method 'iterator()' is ambiguous for this expression. Applicable candidates:
+fun <T> Enumeration<T>.iterator(): Iterator<T>
+fun <T> Iterator<T>.iterator(): Iterator<T>
+fun <K, V> Map<out K, V>.iterator(): Iterator<Map.Entry<K, V>>
+fun <K, V> MutableMap<K, V>.iterator(): MutableIterator<MutableMap.MutableEntry<K, V>>
+fun CharSequence.iterator(): CharIterator
+fun BufferedInputStream.iterator(): ByteIterator
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:126:13 Unresolved reference 'not' for operator '!'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:126:32 Function invocation 'isEmpty()' expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:127:59 Unresolved reference 'amount'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:127:69 Unresolved reference 'not' for operator '!'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:134:33 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:136:88 Unresolved reference 'amount'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:139:92 Unresolved reference 'amount'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:150:13 Unresolved reference 'not' for operator '!'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:150:32 Function invocation 'isEmpty()' expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/CentrifugeBlockEntity.kt:154:33 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/DieselGeneratorBlockEntity.kt:41:72 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/DieselGeneratorBlockEntity.kt:41:125 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/DieselGeneratorBlockEntity.kt:89:56 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ElectricFurnaceBlockEntity.kt:37:1 Class 'ElectricFurnaceBlockEntity' is not abstract and does not implement abstract member:
+fun clearUsedRecipes(): Unit
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ElectricFurnaceBlockEntity.kt:206:44 Unresolved reference 'Constants'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ElectricPressBlockEntity.kt:66:32 Unresolved reference 'Component'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ForcefieldGeneratorBlockEntity.kt:17:86 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ForcefieldGeneratorBlockEntity.kt:17:105 Unresolved reference 'forcefieldGenerator'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ForcefieldGeneratorBlockEntity.kt:74:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/ForcefieldGeneratorBlockEntity.kt:79:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:53:68 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:119:72 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:120:72 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:121:70 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:122:71 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:136:66 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:137:66 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:138:64 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FractionatingColumnBlockEntity.kt:139:65 Unresolved reference 'getSourceFluid'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FusionCoreBlockEntity.kt:12:77 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FusionCoreBlockEntity.kt:12:96 Unresolved reference 'fusionCore'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FusionCoreBlockEntity.kt:54:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/FusionCoreBlockEntity.kt:60:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/chemistry/CatalyticReformerBlockEntity.kt:11:84 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/chemistry/CatalyticReformerBlockEntity.kt:11:103 Unresolved reference 'catalyticReformer'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/chemistry/CrackingTowerBlockEntity.kt:11:80 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/chemistry/CrackingTowerBlockEntity.kt:11:99 Unresolved reference 'crackingTower'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/BlackHoleBombBlockEntity.kt:12:80 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/BlackHoleBombBlockEntity.kt:12:99 Unresolved reference 'blackHoleBomb'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/PrototypeBlockEntity.kt:5:46 Unresolved reference 'NukeExplosion'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/PrototypeBlockEntity.kt:11:76 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/PrototypeBlockEntity.kt:11:95 Unresolved reference 'prototype'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/TsarBombaBlockEntity.kt:9:76 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/explosive/TsarBombaBlockEntity.kt:9:95 Unresolved reference 'tsarBomba'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/oil/OilRefineryBlockEntity.kt:13:78 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/oil/OilRefineryBlockEntity.kt:13:97 Unresolved reference 'oilRefinery'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/oil/OilRefineryBlockEntity.kt:43:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/oil/OilRefineryBlockEntity.kt:48:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/BreedingReactorBlockEntity.kt:11:82 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/BreedingReactorBlockEntity.kt:11:101 Unresolved reference 'breedingReactor'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/BreedingReactorBlockEntity.kt:31:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/BreedingReactorBlockEntity.kt:38:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/CyclotronBlockEntity.kt:11:76 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/CyclotronBlockEntity.kt:11:95 Unresolved reference 'cyclotron'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/CyclotronBlockEntity.kt:29:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/CyclotronBlockEntity.kt:35:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/FELBlockEntity.kt:11:70 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/FELBlockEntity.kt:11:89 Unresolved reference 'fel'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/FELBlockEntity.kt:29:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/FELBlockEntity.kt:35:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/LHCBlockEntity.kt:11:70 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/physics/LHCBlockEntity.kt:11:89 Unresolved reference 'lhc'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:9:50 Unresolved reference 'AbstractMachineBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:16:65 Unresolved reference 'AbstractMachineBlockEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:18:5 'tick' overrides nothing.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:23:13 Unresolved reference 'power'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:24:26 Unresolved reference 'getItem'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:25:27 Unresolved reference 'getItem'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:27:18 Unresolved reference 'not' for operator '!'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:30:85 Argument type mismatch: actual type is 'ArcFurnaceBlockEntity', but 'Container!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:34:26 Unresolved reference 'canInsertItem'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:35:26 Unresolved reference 'progress'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:35:34 Unresolved reference 'progress'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:36:26 Unresolved reference 'power'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:38:30 Unresolved reference 'progress'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:40:30 Unresolved reference 'insertItem'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:41:30 Unresolved reference 'progress'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:46:18 Unresolved reference 'progress'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:50:9 Unresolved reference 'updateLitState'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ArcFurnaceBlockEntity.kt:51:9 Unresolved reference 'sendContinuousUpdatePacket'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/CrystallizerBlockEntity.kt:11:79 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/CrystallizerBlockEntity.kt:11:98 Unresolved reference 'crystallizer'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/OreWasherBlockEntity.kt:11:76 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/OreWasherBlockEntity.kt:11:95 Unresolved reference 'oreWasher'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ThermalCentrifugeBlockEntity.kt:11:84 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/processor/ThermalCentrifugeBlockEntity.kt:11:103 Unresolved reference 'thermalCentrifuge'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/watz/WatzCoreBlockEntity.kt:12:75 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<*>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/watz/WatzCoreBlockEntity.kt:12:94 Unresolved reference 'watzCore'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/watz/WatzCoreBlockEntity.kt:41:34 Unresolved reference 'serializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/entity/watz/WatzCoreBlockEntity.kt:46:44 Unresolved reference 'deserializeNBT'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/BlackHoleBombBlock.kt:41:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<BlackHoleBombBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/BlackHoleBombBlock.kt:41:89 Unresolved reference 'blackHoleBomb'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/PrototypeBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<PrototypeBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/PrototypeBlock.kt:23:89 Unresolved reference 'prototype'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/TsarBombaBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<TsarBombaBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/explosive/TsarBombaBlock.kt:23:89 Unresolved reference 'tsarBomba'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/hazard/RadHotspotBlock.kt:17:14 Conflicting overloads:
+fun getShape(state: BlockState, world: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/hazard/RadHotspotBlock.kt:28:14 Conflicting overloads:
+fun getShape(state: BlockState, world: BlockGetter, pos: BlockPos, context: CollisionContext): VoxelShape
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/ForcefieldGeneratorBlock.kt:26:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<ForcefieldGeneratorBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/ForcefieldGeneratorBlock.kt:26:60 Unresolved reference 'forcefieldGenerator'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/FusionCoreBlock.kt:25:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<FusionCoreBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/FusionCoreBlock.kt:25:60 Unresolved reference 'fusionCore'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/chemistry/CatalyticReformerBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<CatalyticReformerBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/chemistry/CatalyticReformerBlock.kt:23:89 Unresolved reference 'catalyticReformer'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/chemistry/CrackingTowerBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<CrackingTowerBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/chemistry/CrackingTowerBlock.kt:23:89 Unresolved reference 'crackingTower'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/oil/OilRefineryBlock.kt:25:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<OilRefineryBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/oil/OilRefineryBlock.kt:25:60 Unresolved reference 'oilRefinery'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/BreedingReactorBlock.kt:28:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<BreedingReactorBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/BreedingReactorBlock.kt:28:60 Unresolved reference 'breedingReactor'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/CyclotronBlock.kt:28:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<CyclotronBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/CyclotronBlock.kt:28:60 Unresolved reference 'cyclotron'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/FELBlock.kt:28:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<FELBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/FELBlock.kt:28:60 Unresolved reference 'fel'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/LHCBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<LHCBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/physics/LHCBlock.kt:23:89 Unresolved reference 'lhc'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ArcFurnaceBlock.kt:40:18 Return type of 'newBlockEntity' is not a subtype of the return type of the overridden member 'fun newBlockEntity(p0: BlockPos!, p1: BlockState!): BlockEntity?' defined in 'net/minecraft/world/level/block/EntityBlock'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ArcFurnaceBlock.kt:42:106 Unresolved reference 'Type'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ArcFurnaceBlock.kt:43:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ArcFurnaceBlock.kt:43:134 Too many arguments for 'fun <T : BlockEntity, X : BlockEntity, TickingServerBlockEntity> createServerTickerChecked(type: BlockEntityType<T>, expectedType: BlockEntityType<X>): BlockEntityTicker<T>?'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/CrystallizerBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<CrystallizerBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/CrystallizerBlock.kt:23:89 Unresolved reference 'crystallizer'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/OreWasherBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<OreWasherBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/OreWasherBlock.kt:23:89 Unresolved reference 'oreWasher'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ThermalCentrifugeBlock.kt:23:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<ThermalCentrifugeBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/processor/ThermalCentrifugeBlock.kt:23:89 Unresolved reference 'thermalCentrifuge'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/watz/WatzCoreBlock.kt:25:41 Argument type mismatch: actual type is 'MatchGroup?', but 'BlockEntityType<WatzCoreBlockEntity!>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/machine/watz/WatzCoreBlock.kt:25:60 Unresolved reference 'watzCore'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/transport/ConveyorBlock.kt:48:106 Unresolved reference 'Type'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/transport/ConveyorBlock.kt:49:50 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/transport/ConveyorBlock.kt:49:82 Argument type mismatch: actual type is '@NotNull() BlockEntityType<ConveyorBlockEntity!>', but 'BlockEntityType<uninferred X (of fun <T : BlockEntity, X : BlockEntity, TickingServerBlockEntity> createServerTickerChecked)>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/transport/ConveyorBlock.kt:49:132 Too many arguments for 'fun <T : BlockEntity, X : BlockEntity, TickingServerBlockEntity> createServerTickerChecked(type: BlockEntityType<T>, expectedType: BlockEntityType<X>): BlockEntityTicker<T>?'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/block/transport/FluidPipeBlock.kt:10:48 This type is final, so it cannot be extended.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/effect/BlackHoleEntity.kt:90:57 Unresolved reference 'outOfWorld'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/effect/BlackHoleEntity.kt:123:5 'getPacket' overrides nothing.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/missile/DoomsdayMissileEntity.kt:42:5 'getPacket' overrides nothing.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/missile/ICBMEntity.kt:44:5 'getPacket' overrides nothing.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/missile/MIRVEntity.kt:39:5 'getPacket' overrides nothing.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/projectile/EntityGrenadeProjectile.kt:32:81 Unresolved reference 'create'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:4:52 Unresolved reference 'MissileEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:13:1 Class 'CIWSTurretEntity' is not abstract and does not implement abstract base class member:
+fun getFireRate(): Int
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:37 Argument type mismatch: actual type is 'Int', but 'Int' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:40 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:40 Argument type mismatch: actual type is 'NearestAttackableTargetGoal<uninferred T (of class NearestAttackableTargetGoal<T : LivingEntity!>)>', but 'Goal!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:68 Argument type mismatch: actual type is 'CIWSTurretEntity', but 'Mob!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:74 Unresolved reference 'MissileEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:74 Argument type mismatch: actual type is 'Class<uninferred T (of val <T> KClass<T>.java)>', but 'Class<uninferred T! (of class NearestAttackableTargetGoal<T : LivingEntity!>)>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:95 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:95 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+val <T> KClass<T>.java: Class<T>
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:16:101 Argument type mismatch: actual type is 'Boolean', but 'Boolean' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:17:40 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:17:40 Not enough information to infer type argument for 'T'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:17:74 Argument type mismatch: actual type is 'Class<ICBMEntity>', but 'Class<uninferred T! (of class NearestAttackableTargetGoal<T : LivingEntity!>)>!' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/CIWSTurretEntity.kt:24:27 Unresolved reference 'MissileEntity'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/GunTurretEntity.kt:17:35 Argument type mismatch: actual type is 'Level!', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/GunTurretEntity.kt:17:49 Argument type mismatch: actual type is 'GunTurretEntity', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/HeavyRailgunTurretEntity.kt:10:1 Class 'HeavyRailgunTurretEntity' is not abstract and does not implement abstract base class member:
+fun getFireRate(): Int
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/LaserTurretEntity.kt:9:1 Class 'LaserTurretEntity' is not abstract and does not implement abstract base class member:
+fun getFireRate(): Int
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/MissileTurretEntity.kt:18:44 Argument type mismatch: actual type is 'Level!', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/MissileTurretEntity.kt:18:58 Argument type mismatch: actual type is 'MissileTurretEntity', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/MissileTurretEntity.kt:21:52 Unresolved reference 'ExplosionLarge'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/entity/turret/MissileTurretEntity.kt:21:145 Unresolved reference 'ExplosionLargeParams'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/PowerArmorItem.kt:10:144 Argument type mismatch: actual type is 'NTechArmorMaterials', but 'ArmorMaterial' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/TeleporterLinkerItem.kt:46:28 Unresolved reference 'targetX'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/TeleporterLinkerItem.kt:47:28 Unresolved reference 'targetY'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/TeleporterLinkerItem.kt:48:28 Unresolved reference 'targetZ'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/TeleporterLinkerItem.kt:49:28 Unresolved reference 'hasTarget'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/medical/RadAwayItem.kt:4:61 Unresolved reference 'decontaminate'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/medical/RadAwayItem.kt:5:43 Unresolved reference 'EntityContaminationHandler'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/medical/RadAwayItem.kt:20:17 Unresolved reference 'EntityContaminationHandler'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/medical/RadAwayItem.kt:20:70 Unresolved reference 'EntityContaminationHandler'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/weapon/AlienBlasterItem.kt:17:71 Argument type mismatch: actual type is 'Level', but 'EntityType<out EntityBullet>' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/item/weapon/AlienBlasterItem.kt:17:78 Argument type mismatch: actual type is 'Player', but 'Level' was expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/menu/DieselGeneratorMenu.kt:28:17 Unresolved reference 'hasFluidHandlerCondition'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/menu/ElectricPressMenu.kt:52:17 Unresolved reference 'hasRecipe'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:31:21 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:31:34 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:32:35 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:32:61 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:41:13 Unresolved reference 'not' for operator '!'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:41:25 Function invocation 'isEmpty()' expected.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/recipe/CentrifugeRecipe.kt:71:51 Unresolved reference 'FluidStack'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:25:5 This type is final, so it cannot be extended.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:40:82 Cannot access 'field startPool: Holder<StructureTemplatePool!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:41:92 Cannot access 'field startJigsawName: Optional<ResourceLocation!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:42:69 Cannot access 'field maxDepth: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:43:77 Cannot access 'field startHeight: HeightProvider!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:44:73 Cannot access 'field useExpansionHack: Boolean': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:45:100 Cannot access 'field projectStartToHeightmap: Optional<Heightmap.Types!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/BunkerStructure.kt:46:91 Cannot access 'field maxDistanceFromCenter: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:25:5 This type is final, so it cannot be extended.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:40:82 Cannot access 'field startPool: Holder<StructureTemplatePool!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:41:92 Cannot access 'field startJigsawName: Optional<ResourceLocation!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:42:69 Cannot access 'field maxDepth: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:43:77 Cannot access 'field startHeight: HeightProvider!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:44:73 Cannot access 'field useExpansionHack: Boolean': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:45:100 Cannot access 'field projectStartToHeightmap: Optional<Heightmap.Types!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/MissileSiloStructure.kt:46:91 Cannot access 'field maxDistanceFromCenter: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:25:5 This type is final, so it cannot be extended.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:40:82 Cannot access 'field startPool: Holder<StructureTemplatePool!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:41:92 Cannot access 'field startJigsawName: Optional<ResourceLocation!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:42:69 Cannot access 'field maxDepth: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:43:77 Cannot access 'field startHeight: HeightProvider!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:44:73 Cannot access 'field useExpansionHack: Boolean': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:45:100 Cannot access 'field projectStartToHeightmap: Optional<Heightmap.Types!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RadioStationStructure.kt:46:91 Cannot access 'field maxDistanceFromCenter: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:26:5 This type is final, so it cannot be extended.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:41:82 Cannot access 'field startPool: Holder<StructureTemplatePool!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:42:92 Cannot access 'field startJigsawName: Optional<ResourceLocation!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:43:69 Cannot access 'field maxDepth: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:44:77 Cannot access 'field startHeight: HeightProvider!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:45:73 Cannot access 'field useExpansionHack: Boolean': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:46:100 Cannot access 'field projectStartToHeightmap: Optional<Heightmap.Types!>!': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/RuinsStructure.kt:47:91 Cannot access 'field maxDistanceFromCenter: Int': it is private in 'net/minecraft/world/level/levelgen/structure/structures/JigsawStructure'.
+e: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/targets/mc20forge/src/main/kotlin/dev/ntmr/nucleartech/content/worldgen/structures/SatelliteDishStructure.kt:25:5 This type is final, so it cannot be extended.
+
+> Task :targets:mc20forge:compileKotlin FAILED
+Kotlin build report is written to file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/sorcerer/build/reports/kotlin-build/sorcerer-build-2026-01-15-20-07-13-0.txt
+Kotlin build report is written to file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/build/reports/kotlin-build/nuclear-tech-mod-remake-build-2026-01-15-20-07-13-0.txt
+
+[Incubating] Problems report is available at: file:///D:/Documents/GitHub/HBM-Modernized/1.18hbm/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':targets:mc20forge:compileKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.12.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 31s
+12 actionable tasks: 1 executed, 11 up-to-date

@@ -38,19 +38,13 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
         get() = energyStorage.energyStored
         private set(value) { energyStorage.energy = value }
 
-    // Slots: 
-    // 0: Fluid Input Item (Bucket)
-    // 1-4: Output Item (Bucket/Barrel) slots for the 4 tanks? Or just 1 universal drain slot?
-    // Let's stick to 2 IO slots: 0 Input, 1 Output (Drain)
-    // 2: Battery
-    // 3-6: Upgrades
     override val mainInventory: NonNullList<ItemStack> = NonNullList.withSize(7, ItemStack.EMPTY)
     override val upgradeSlots = 3..6
 
     val energyStorage = EnergyStorageExposed(MAX_ENERGY, ENERGY_TRANSFER_RATE, 0)
     
     // Tanks
-    val inputTank = FluidTank(16000) { it.fluid == NTechFluids.oil.getSourceFluid() }
+    val inputTank = FluidTank(16000) { it.fluid.isSame(NTechFluids.oil.source.get()) }
     val heavyOilTank = FluidTank(16000)
     val lightOilTank = FluidTank(16000)
     val naphthaTank = FluidTank(16000)
@@ -60,7 +54,6 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
     var maxProgress = 100
 
     override fun createMenu(windowID: Int, inventory: Inventory) = FractionatingColumnMenu(windowID, inventory, this)
-    // TODO: Add LangKey
     override val defaultName = Component.translatable("container.nucleartech.fractionating_column")
 
     override fun trackContainerMenu(menu: NTechContainerMenu<*>) {
@@ -69,7 +62,7 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
         menu.track(IntDataSlot.create(this::speedUpgradeLevel, this::speedUpgradeLevel::set))
     }
 
-    override val shouldPlaySoundLoop = false // TODO Add industrial hum
+    override val shouldPlaySoundLoop = false 
     override val soundLoopEvent get() = throw IllegalStateException()
     override val soundLoopStateMachine = SoundLoopBlockEntity.NoopStateMachine(this)
 
@@ -92,34 +85,19 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
         MachineUpgradeItem.applyUpgrades(this, upgradeSlots.map { mainInventory[it] })
         maxProgress = calculateMaxProgress().coerceAtLeast(1)
         
-        // Process Fluid Input Item (Fill Tank)
-        val inputItem = mainInventory[0]
-        if (!inputItem.isEmpty) {
-             // Logic to drain bucket into inputTank
-             // Simple fallback or comprehensive FluidUtil logic?
-             // Assuming generic fill logic for now.
-        }
-
         var isProcessing = false
         
-        // Refining Logic
         if (inputTank.fluidAmount >= 100 && energy >= consumption) {
-             // Check output space
-             // For 100mb Crude Oil -> ? 
-             // Recipes usually: 100 Crude -> 25 Heavy, 25 Light, 25 Naphtha, 25 Gas? 
-             // Or varied? Let's assume equal split for simplicity first.
-             // 100mb in -> 25mb each.
-             
              if (canFitOutput(25)) {
                  energy -= consumption
                  progress++
                  isProcessing = true
                  if (progress >= maxProgress) {
                      inputTank.drain(100, IFluidHandler.FluidAction.EXECUTE)
-                     heavyOilTank.fill(FluidStack(NTechFluids.heavyOil.getSourceFluid(), 25), IFluidHandler.FluidAction.EXECUTE)
-                     lightOilTank.fill(FluidStack(NTechFluids.lightOil.getSourceFluid(), 25), IFluidHandler.FluidAction.EXECUTE)
-                     naphthaTank.fill(FluidStack(NTechFluids.naphtha.getSourceFluid(), 25), IFluidHandler.FluidAction.EXECUTE)
-                     gasTank.fill(FluidStack(NTechFluids.petroleumGas.getSourceFluid(), 25), IFluidHandler.FluidAction.EXECUTE)
+                     heavyOilTank.fill(FluidStack(NTechFluids.heavyOil.source.get(), 25), IFluidHandler.FluidAction.EXECUTE)
+                     lightOilTank.fill(FluidStack(NTechFluids.lightOil.source.get(), 25), IFluidHandler.FluidAction.EXECUTE)
+                     naphthaTank.fill(FluidStack(NTechFluids.naphtha.source.get(), 25), IFluidHandler.FluidAction.EXECUTE)
+                     gasTank.fill(FluidStack(NTechFluids.petroleumGas.source.get(), 25), IFluidHandler.FluidAction.EXECUTE)
                      progress = 0
                  }
              }
@@ -133,10 +111,10 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
     }
     
     private fun canFitOutput(amount: Int): Boolean {
-        return heavyOilTank.fill(FluidStack(NTechFluids.heavyOil.getSourceFluid(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
-               lightOilTank.fill(FluidStack(NTechFluids.lightOil.getSourceFluid(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
-               naphthaTank.fill(FluidStack(NTechFluids.naphtha.getSourceFluid(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
-               gasTank.fill(FluidStack(NTechFluids.petroleumGas.getSourceFluid(), amount), IFluidHandler.FluidAction.SIMULATE) == amount
+        return heavyOilTank.fill(FluidStack(NTechFluids.heavyOil.source.get(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
+               lightOilTank.fill(FluidStack(NTechFluids.lightOil.source.get(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
+               naphthaTank.fill(FluidStack(NTechFluids.naphtha.source.get(), amount), IFluidHandler.FluidAction.SIMULATE) == amount &&
+               gasTank.fill(FluidStack(NTechFluids.petroleumGas.source.get(), amount), IFluidHandler.FluidAction.SIMULATE) == amount
     }
 
     override fun isItemValid(slot: Int, stack: ItemStack) = when (slot) {
@@ -145,7 +123,6 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
         else -> true
     }
     
-    // Boilerplate for RecipeHolder
     override fun setRecipeUsed(recipe: Recipe<*>?) {}
     override fun getRecipeUsed(): Recipe<*>? = null
     override fun awardUsedRecipes(player: Player, items: MutableList<ItemStack>) {}
@@ -172,15 +149,8 @@ class FractionatingColumnBlockEntity(pos: BlockPos, state: BlockState) : BaseMac
         gasTank.readFromNBT(tag.getCompound("GasTank"))
     }
     
-    // Capability Handling for Fluid Handlers?
-    // We have 5 tanks. Which one is exposed?
-    // Ideally use Sided logic. Bottom = Heavy? Top = Gas? 
-    // Usually Distillation Towers have dedicated output ports in multiblock structure.
-    // For single block simplified logic, we might need a composite handler or just expose input for now.
-    
     init {
         registerCapabilityHandler(ForgeCapabilities.ENERGY, this::energyStorage)
-        // registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, ...)
     }
 
     companion object {

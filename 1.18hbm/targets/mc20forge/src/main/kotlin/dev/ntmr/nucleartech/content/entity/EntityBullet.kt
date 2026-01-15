@@ -27,6 +27,8 @@ open class EntityBullet(type: EntityType<out EntityBullet>, level: Level) : Proj
         this.setDeltaMovement(shooter.lookAngle.scale(3.0)) // High speed
     }
 
+    constructor(level: Level, shooter: LivingEntity) : this(level, shooter, 5.0f)
+
     override fun defineSynchedData() {}
 
     override fun tick() {

@@ -6,53 +6,17 @@
 package dev.ntmr.nucleartech.content
 
 import dev.ntmr.nucleartech.MODID
-import dev.ntmr.nucleartech.content.block.entity.AssemblerBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.BlastFurnaceBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.CentrifugeBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.ChemPlantBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.BreedingReactorBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.FELBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.FusionCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.WatzCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.FELBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.FusionCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.physics.WatzCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.CombustionGeneratorBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.ElectricFurnaceBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.FatManBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.LargeCoolingTowerBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.LaunchPadBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.LittleBoyBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.OilDerrickBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.PumpjackBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.SafeBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.ShredderBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.SirenBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.SmallCoolingTowerBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.SteamPressBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.TurbineBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.VolcanoBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKAbsorberBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKAutoControlBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKBlankBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKBoilerBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKConsoleBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKInletBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKManualControlBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKModeratedControlBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKModeratedReaSimRodBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKModeratedRodBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKModeratorBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKOutletBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKReaSimRodBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKReflectorBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKRodBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKSteamConnectorBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.transmitters.CableBlockEntity
-import dev.ntmr.nucleartech.content.block.entity.transmitters.FluidPipeBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.*
+import dev.ntmr.nucleartech.content.block.entity.chemistry.*
+import dev.ntmr.nucleartech.content.block.entity.explosive.*
+import dev.ntmr.nucleartech.content.block.entity.machine.*
+import dev.ntmr.nucleartech.content.block.entity.oil.*
+import dev.ntmr.nucleartech.content.block.entity.physics.*
+import dev.ntmr.nucleartech.content.block.entity.processor.*
+import dev.ntmr.nucleartech.content.block.entity.transport.*
+import dev.ntmr.nucleartech.content.block.entity.watz.*
+import dev.ntmr.nucleartech.content.block.entity.rbmk.*
+
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPart
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPort
 import dev.ntmr.nucleartech.content.NTechRegistry
@@ -61,6 +25,15 @@ import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.entity.BlockEntityType
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
+import dev.ntmr.nucleartech.content.block.entity.chemistry.*
+import dev.ntmr.nucleartech.content.block.entity.explosive.*
+import dev.ntmr.nucleartech.content.block.entity.machine.*
+import dev.ntmr.nucleartech.content.block.entity.oil.*
+import dev.ntmr.nucleartech.content.block.entity.physics.*
+import dev.ntmr.nucleartech.content.block.entity.processor.*
+import dev.ntmr.nucleartech.content.block.entity.transmitters.*
+import dev.ntmr.nucleartech.content.block.entity.watz.*
+import dev.ntmr.nucleartech.content.block.entity.FusionCoreBlockEntity
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 object NTechBlockEntities : NTechRegistry<BlockEntityType<*>> {
@@ -110,14 +83,48 @@ object NTechBlockEntities : NTechRegistry<BlockEntityType<*>> {
     val fatManBlockEntityType = register("fat_man") { createType(::FatManBlockEntity, NTechBlocks.fatMan.get()) }
     val volcanoBlockEntityType = register("volcano") { createType(::VolcanoBlockEntity, NTechBlocks.volcanoCore.get()) }
     val launchPadBlockEntityType = register("launch_pad") { createType(::LaunchPadBlockEntity, NTechBlocks.launchPad.get()) }
-
+ 
     val forcefieldGeneratorBlockEntityType = register("forcefield_generator") { createType(::ForcefieldGeneratorBlockEntity, NTechBlocks.forcefieldGenerator.get()) }
     val fusionCoreBlockEntityType = register("fusion_core") { createType(::FusionCoreBlockEntity, NTechBlocks.fusionCore.get()) }
     val watzCoreBlockEntityType = register("watz_core") { createType(::WatzCoreBlockEntity, NTechBlocks.watzCore.get()) }
     val oilRefineryBlockEntityType = register("oil_refinery") { createType(::OilRefineryBlockEntity, NTechBlocks.oilRefinery.get()) }
     val cyclotronBlockEntityType = register("cyclotron") { createType(::CyclotronBlockEntity, NTechBlocks.cyclotron.get()) }
     val felBlockEntityType = register("fel") { createType(::FELBlockEntity, NTechBlocks.fel.get()) }
-    val breedingReactorBlockEntityType = register("breeding_reactor") { createType(::BreedingReactorBlockEntity, NTechBlocks.breedingReactor.get()) }
+    // val ruinedReactorCoreBlockEntity = register("ruined_reactor_core") { BlockEntityType.Builder.of(::RuinedReactorCoreBlockEntity, NTechBlocks.ruinedReactorCore.get()).build(null) }
+ 
+    // Phase 25
+    val teleporter = register("teleporter") { BlockEntityType.Builder.of(::TeleporterBlockEntity, NTechBlocks.teleporter.get()).build(null) }
+ 
+    // Phase 22: Transport
+    val conveyorBlockEntityType = register("conveyor") { BlockEntityType.Builder.of(::ConveyorBlockEntity, NTechBlocks.conveyor.get()).build(null) }
+    
+    val genericFluidPipeBlockEntityType = register("generic_fluid_pipe") { BlockEntityType.Builder.of(::FluidPipeBlockEntity, NTechBlocks.fluidPipe.get()).build(null) }
+    val blackHoleBombBlockEntityType = register("black_hole_bomb") { createType(::BlackHoleBombBlockEntity, NTechBlocks.blackHoleBomb.get()) }
+    val lhcBlockEntityType = register("lhc") { createType(::LHCBlockEntity, NTechBlocks.lhc.get()) }
+    val prototypeBlockEntityType = register("prototype") { createType(::PrototypeBlockEntity, NTechBlocks.prototype.get()) }
+    val tsarBombaBlockEntityType = register("tsar_bomba") { createType(::TsarBombaBlockEntity, NTechBlocks.tsarBomba.get()) }
+    
+    val oreWasherBlockEntityType = register("ore_washer") { createType(::OreWasherBlockEntity, NTechBlocks.oreWasher.get()) }
+    val thermalCentrifugeBlockEntityType = register("thermal_centrifuge") { createType(::ThermalCentrifugeBlockEntity, NTechBlocks.thermalCentrifuge.get()) }
+    val crystallizerBlockEntityType = register("crystallizer") { createType(::CrystallizerBlockEntity, NTechBlocks.crystallizer.get()) }
+    val crackingTowerBlockEntityType = register("cracking_tower") { createType(::CrackingTowerBlockEntity, NTechBlocks.crackingTower.get()) }
+    val catalyticReformerBlockEntityType = register("catalytic_reformer") { createType(::CatalyticReformerBlockEntity, NTechBlocks.catalyticReformer.get()) }
+    val arcFurnaceBlockEntityType = register("arc_furnace") { createType<ArcFurnaceBlockEntity>(::ArcFurnaceBlockEntity, NTechBlocks.arcFurnace.get()) }
+ 
+    // Aliases for compatibility with code using legacy short names
+    val forcefieldGenerator get() = forcefieldGeneratorBlockEntityType
+    val fusionCore get() = fusionCoreBlockEntityType
+    val centrifuge get() = centrifugeBlockEntityType
+    val blackHoleBomb get() = blackHoleBombBlockEntityType
+    val lhc get() = lhcBlockEntityType
+    val prototype get() = prototypeBlockEntityType
+    val tsarBomba get() = tsarBombaBlockEntityType
+    val oreWasher get() = oreWasherBlockEntityType
+    val thermalCentrifuge get() = thermalCentrifugeBlockEntityType
+    val crystallizer get() = crystallizerBlockEntityType
+    val crackingTower get() = crackingTowerBlockEntityType
+    val catalyticReformer get() = catalyticReformerBlockEntityType
+    val arcFurnace get() = arcFurnaceBlockEntityType
 
     private fun <T : BlockEntity> createType(supplier: BlockEntityType.BlockEntitySupplier<T>, vararg blocks: Block) = BlockEntityType.Builder.of(supplier, *blocks).build()
     private fun <T : BlockEntity> BlockEntityType.Builder<T>.build() = build(null)

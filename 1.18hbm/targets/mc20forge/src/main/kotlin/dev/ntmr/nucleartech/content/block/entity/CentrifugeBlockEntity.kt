@@ -29,7 +29,6 @@ import net.minecraft.world.phys.AABB
 import net.minecraftforge.common.capabilities.ForgeCapabilities
 import kotlin.jvm.optionals.getOrNull
 import net.minecraftforge.energy.IEnergyStorage
-import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.capability.IFluidHandler
 import net.minecraftforge.fluids.capability.templates.FluidTank
 import net.minecraft.core.Direction
@@ -123,8 +122,8 @@ class CentrifugeBlockEntity(pos: BlockPos, state: BlockState) : RecipeMachineBlo
     val outputTank2 = FluidTank(10000)
 
     override fun matchesRecipe(recipe: CentrifugeRecipe): Boolean {
-        if (!recipe.inputFluid.isEmpty) {
-            if (inputTank.fluidAmount < recipe.inputFluid.amount || !inputTank.fluid.isFluidEqual(recipe.inputFluid)) return false
+        if (!recipe.inputFluid.isEmpty()) { 
+             if (inputTank.fluidAmount < recipe.inputFluid.amount || !inputTank.fluid.isFluidEqual(recipe.inputFluid)) return false
         }
         if (!recipe.ingredient.isEmpty) {
             if (!recipe.matches(this, levelUnchecked)) return false
@@ -147,7 +146,7 @@ class CentrifugeBlockEntity(pos: BlockPos, state: BlockState) : RecipeMachineBlo
         if (!recipe.ingredient.isEmpty) {
             listOf(recipe.ingredient).containerSatisfiesRequirements(subView(3, 4), true)
         }
-        if (!recipe.inputFluid.isEmpty) {
+        if (!recipe.inputFluid.isEmpty()) { 
             inputTank.drain(recipe.inputFluid, IFluidHandler.FluidAction.EXECUTE)
         }
         
@@ -185,10 +184,6 @@ class CentrifugeBlockEntity(pos: BlockPos, state: BlockState) : RecipeMachineBlo
         registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.SOUTH)
         registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.WEST)
         registerCapabilityHandler(ForgeCapabilities.FLUID_HANDLER, this::inputTank, Direction.EAST)
-        // Outputs usually bottom or sides? Let's just expose input everywhere for now or define IO more strictly.
-        // For simplicity, let's say Input is Side/Top, Output is Bottom? 
-        // Or using Composite Fluid Handler?
-        // Let's just replicate the pattern.
     }
 
     companion object {

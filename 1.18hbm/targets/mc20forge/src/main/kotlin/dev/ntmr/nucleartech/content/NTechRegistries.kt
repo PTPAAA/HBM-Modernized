@@ -31,6 +31,7 @@ object NTechRegistries {
         NTechSounds,
         NTechParticles,
         NTechStructures,
+        NTechMobEffects,
     )
 
     // Initialization of non-registry objects

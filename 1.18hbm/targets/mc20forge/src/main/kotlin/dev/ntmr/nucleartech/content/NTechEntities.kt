@@ -7,11 +7,21 @@ package dev.ntmr.nucleartech.content
 
 import dev.ntmr.nucleartech.MODID
 import dev.ntmr.nucleartech.content.entity.*
+import dev.ntmr.nucleartech.content.entity.monster.FeralGhoulEntity
+import dev.ntmr.nucleartech.content.entity.monster.MaskManEntity
+import dev.ntmr.nucleartech.content.entity.monster.RaiderEntity
+import dev.ntmr.nucleartech.content.entity.monster.TaintCrawlerEntity
+import dev.ntmr.nucleartech.content.entity.projectile.EntityGrenadeProjectile
+import dev.ntmr.nucleartech.content.entity.projectile.EntityMiniNuke
+import dev.ntmr.nucleartech.content.entity.projectile.EntityRocket
 import dev.ntmr.nucleartech.content.entity.missile.*
-import dev.ntmr.nucleartech.content.entity.monster.*
-import dev.ntmr.nucleartech.content.entity.turret.*
-import dev.ntmr.nucleartech.content.NTechRegistry
+import dev.ntmr.nucleartech.content.entity.monster.AlienEntity
+import dev.ntmr.nucleartech.content.entity.turret.HeavyRailgunTurretEntity
+import dev.ntmr.nucleartech.content.entity.vehicle.UFOEntity
 import net.minecraft.world.entity.Entity
+import dev.ntmr.nucleartech.content.entity.turret.*
+import dev.ntmr.nucleartech.content.entity.monster.CyberCrabEntity
+import dev.ntmr.nucleartech.content.entity.effect.BlackHoleEntity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.MobCategory
 import net.minecraftforge.registries.DeferredRegister
@@ -54,4 +64,30 @@ object NTechEntities : NTechRegistry<EntityType<*>> {
     val taintCrawler = register("taint_crawler") { EntityType.Builder.of(::TaintCrawlerEntity, MobCategory.MONSTER).sized(0.5F, 0.4F).build("taint_crawler") }
     val cyberCrab = register("cyber_crab") { EntityType.Builder.of(::CyberCrabEntity, MobCategory.MONSTER).sized(0.6F, 0.5F).build("cyber_crab") }
     val maskMan = register("mask_man") { EntityType.Builder.of(::MaskManEntity, MobCategory.MONSTER).sized(0.6F, 1.8F).build("mask_man") }
+    
+    val blackHole = register("black_hole") { EntityType.Builder.of(::BlackHoleEntity, MobCategory.MISC).sized(1.0F, 1.0F).fireImmune().clientTrackingRange(64).updateInterval(20).build("black_hole") }
+    
+    val icbm = register("icbm") { EntityType.Builder.of(::ICBMEntity, MobCategory.MISC).sized(1.0F, 5.0F).clientTrackingRange(64).updateInterval(5).build("icbm") }
+    val mirv = register("mirv") { EntityType.Builder.of(::MIRVEntity, MobCategory.MISC).sized(1.0F, 5.0F).clientTrackingRange(64).updateInterval(5).build("mirv") }
+    
+    val ciws = register("ciws") { EntityType.Builder.of(::CIWSTurretEntity, MobCategory.MISC).sized(1.5F, 2.0F).build("ciws") }
+    val laserTurret = register("laser_turret") { EntityType.Builder.of(::LaserTurretEntity, MobCategory.MISC).sized(1.0F, 1.5F).build("laser_turret") }
+    val heavyRailgun = register("heavy_railgun") { EntityType.Builder.of(::HeavyRailgunTurretEntity, MobCategory.MISC).sized(2.0F, 2.0F).build("heavy_railgun") }
+    
+    val doomsdayMissile = register("doomsday_missile") { EntityType.Builder.of(::DoomsdayMissileEntity, MobCategory.MISC).sized(2.0F, 8.0F).clientTrackingRange(64).updateInterval(5).build("doomsday_missile") }
+
+    val feralGhoul = register("feral_ghoul") { EntityType.Builder.of(::FeralGhoulEntity, MobCategory.MONSTER).sized(0.6F, 1.95F).build("feral_ghoul") }
+    val raider = register("raider") { EntityType.Builder.of(::RaiderEntity, MobCategory.MONSTER).sized(0.6F, 1.95F).build("raider") }
+
+    // Phase 19
+    val rocket = register("rocket") { EntityType.Builder.of(::EntityRocket, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(10).build("rocket") }
+    val miniNuke = register("mini_nuke") { EntityType.Builder.of(::EntityMiniNuke, MobCategory.MISC).sized(1.0F, 1.0F).clientTrackingRange(64).updateInterval(10).build("mini_nuke") }
+    val grenade = register("grenade") { EntityType.Builder.of(::EntityGrenadeProjectile, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(64).updateInterval(10).build("grenade") }
+
+    // Phase 25
+    val alien = register("alien") { EntityType.Builder.of(::AlienEntity, MobCategory.MONSTER).sized(0.6F, 1.8F).build("alien") }
+    val ufo = register("ufo") { EntityType.Builder.of(::UFOEntity, MobCategory.MISC).sized(4.0F, 2.0F).clientTrackingRange(128).build("ufo") }
+
+    // Phase 26
+    // val patrolBoat = register("patrol_boat") { EntityType.Builder.of(::dev.ntmr.nucleartech.content.entity.vehicle.PatrolBoatEntity, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(128).build("patrol_boat") }
 }

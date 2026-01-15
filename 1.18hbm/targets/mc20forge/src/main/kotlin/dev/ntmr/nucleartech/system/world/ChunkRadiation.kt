@@ -78,6 +78,10 @@ object ChunkRadiation : ChunkRadiationHandler {
         world.getChunkAt(pos).isUnsaved = true
     }
 
+    override fun incrementRadiation(world: Level, pos: BlockPos, amount: Float) {
+        setRadiation(world, pos, getRadiation(world, pos) + amount)
+    }
+
     private var eggTimer = 0
 
     @SubscribeEvent @JvmStatic

@@ -101,3 +101,4 @@ class FractionatingColumnScreen(
             graphics.renderComponentTooltip(font, listOf(component, amount), mx, my)
         }
     }
+}

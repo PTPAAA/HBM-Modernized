@@ -14,6 +14,7 @@ import dev.ntmr.nucleartech.system.capability.contamination.ContaminationHandler
 import dev.ntmr.nucleartech.system.capability.contamination.EntityContaminationHandler
 import dev.ntmr.nucleartech.system.capability.contamination.addDigamma
 import dev.ntmr.nucleartech.system.capability.contamination.addIrradiation
+import dev.ntmr.nucleartech.extensions.isGasMask
 import dev.ntmr.nucleartech.system.config.NuclearConfig
 import dev.ntmr.nucleartech.system.world.ChunkRadiation
 import dev.ntmr.nucleartech.system.world.DamageSources

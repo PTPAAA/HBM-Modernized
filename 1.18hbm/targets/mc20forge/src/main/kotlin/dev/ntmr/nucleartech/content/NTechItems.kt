@@ -13,6 +13,14 @@ import dev.ntmr.nucleartech.content.block.LittleBoyBlock
 import dev.ntmr.nucleartech.content.block.entity.rbmk.RBMKFluxReceiver
 import dev.ntmr.nucleartech.content.entity.missile.*
 import dev.ntmr.nucleartech.content.item.*
+import dev.ntmr.nucleartech.content.item.weapon.FatManItem
+import dev.ntmr.nucleartech.content.item.weapon.GrenadeItem
+import dev.ntmr.nucleartech.content.item.weapon.RocketLauncherItem
+import dev.ntmr.nucleartech.content.item.weapon.AlienBlasterItem
+import dev.ntmr.nucleartech.content.item.GunItem
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
 import dev.ntmr.nucleartech.content.item.upgrades.*
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
@@ -20,7 +28,6 @@ import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.ArmorItem
 import net.minecraft.world.item.ArmorMaterial
-import net.minecraft.world.item.Item
 import net.minecraft.world.item.Item.Properties
 import net.minecraft.world.item.Rarity
 import net.minecraftforge.common.ForgeSpawnEggItem
@@ -616,10 +623,61 @@ object NTechItems : NTechRegistry<Item> {
     val ammo357Magnum = register("ammo_357_magnum") { AmmoItem(Properties()) }
     val ammo556Nato = register("ammo_556_nato") { AmmoItem(Properties()) }
     val ammoRocket = register("ammo_rocket") { AmmoItem(Properties()) }
+    val ammoMiniNuke = register("ammo_mininuke") { AmmoItem(Properties()) }
+    val ammoShotgun = register("ammo_shotgun") { AmmoItem(Properties()) }
+    val ammoCal50 = register("ammo_cal50") { AmmoItem(Properties()) }
 
     val gunRevolver = register("gun_revolver") { RevolverItem(Properties().stacksTo(1)) }
-    val gunAssaultRifle = register("gun_assault_rifle") { AssaultRifleItem(Properties().stacksTo(1)) }
-    val gunRocketLauncher = register("gun_rocket_launcher") { RocketLauncherItem(Properties().stacksTo(1)) }
+    
+    // Phase 19 Weapons
+    val gunAssaultRifle = register("gun_assault_rifle") { object : GunItem(Properties().stacksTo(1), 30, 4, 4, ammo556Nato.get()) {
+        override fun spawnProjectile(level: net.minecraft.world.level.Level, player: net.minecraft.world.entity.player.Player, stack: net.minecraft.world.item.ItemStack) {
+            val bullet = dev.ntmr.nucleartech.content.entity.EntityBullet(level, player)
+            bullet.damage = 8.0f
+            bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 3.0f, 1.0f)
+            level.addFreshEntity(bullet)
+        }
+        override fun getShootSound(): net.minecraft.sounds.SoundEvent = net.minecraft.sounds.SoundEvents.GENERIC_EXPLODE 
+    }}
+
+    val gunRocketLauncher = register("gun_rocket_launcher") { RocketLauncherItem(Properties().stacksTo(1), ammoRocket.get()) }
+    val fatMan = register("fat_man") { FatManItem(Properties().stacksTo(1), ammoMiniNuke.get()) }
+    
+    val grenadeBlackHole = register("grenade_black_hole") { GrenadeItem(Properties(), GrenadeItem.GrenadeType.BLACK_HOLE) }
+    val grenadeEMP = register("grenade_emp") { GrenadeItem(Properties(), GrenadeItem.GrenadeType.EMP) }
+
+    // Phase 25
+    val ammoAlien = register("ammo_alien") { AmmoItem(Properties()) }
+    val gunAlienBlaster = register("gun_alien_blaster") { AlienBlasterItem(Properties().stacksTo(1), ammoAlien.get()) }
+    val teleporterLinker = register("teleporter_linker") { TeleporterLinkerItem(Properties().stacksTo(1)) }
+
+    // Phase 26
+    // val patrolBoat = register("patrol_boat") { dev.ntmr.nucleartech.content.item.vehicle.PatrolBoatItem(Properties().stacksTo(1)) }
+
+    val radAway = register("radaway") { dev.ntmr.nucleartech.content.item.medical.RadAwayItem(Properties().stacksTo(16)) }
+    val radX = register("radx") { dev.ntmr.nucleartech.content.item.medical.RadXItem(Properties().stacksTo(16)) }
+    
+    val gunShotgun = register("gun_shotgun") { object : GunItem(Properties().stacksTo(1), 8, 60, 20, ammoShotgun.get()) {
+        override fun spawnProjectile(level: net.minecraft.world.level.Level, player: net.minecraft.world.entity.player.Player, stack: net.minecraft.world.item.ItemStack) {
+            for(i in 0..5) {
+                val bullet = dev.ntmr.nucleartech.content.entity.EntityBullet(level, player)
+                bullet.damage = 4.0f
+                bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 2.5f, 10.0f)
+                level.addFreshEntity(bullet)
+            }
+        }
+        override fun getShootSound(): net.minecraft.sounds.SoundEvent = net.minecraft.sounds.SoundEvents.GENERIC_EXPLODE
+    }}
+    
+    val gunSniperRifle = register("gun_sniper_rifle") { object : GunItem(Properties().stacksTo(1), 5, 80, 40, ammoCal50.get()) {
+        override fun spawnProjectile(level: net.minecraft.world.level.Level, player: net.minecraft.world.entity.player.Player, stack: net.minecraft.world.item.ItemStack) {
+            val bullet = dev.ntmr.nucleartech.content.entity.EntityBullet(level, player)
+            bullet.damage = 25.0f
+            bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0f, 5.0f, 0.0f)
+            level.addFreshEntity(bullet)
+        }
+        override fun getShootSound(): net.minecraft.sounds.SoundEvent = net.minecraft.sounds.SoundEvents.GENERIC_EXPLODE
+    }}
 
     val stoneFlatStamp = register("stone_flat_stamp") { Item(Properties().durability(10)) }
     val stonePlateStamp = register("stone_plate_stamp") { Item(Properties().durability(10)) }
@@ -819,12 +877,12 @@ object NTechItems : NTechRegistry<Item> {
     val bloodBag = register("blood_bag") { BloodBagItem(Properties()) }
     val emptyExperienceBag = register("empty_experience_bag") { EmptyExperienceBagItem(Properties()) }
     val experienceBag = register("experience_bag") { ExperienceBagItem(Properties()) }
-    val radAway = register("radaway") { RadAwayItem(140F, 5 * 20, Properties()) }
+
     val strongRadAway = register("strong_radaway") { RadAwayItem(350F, 4 * 20, Properties()) }
     val eliteRadAway = register("elite_radaway") { RadAwayItem(1000F, 3 * 20, Properties()) }
 
-    val hazmatHelmet = register("hazmat_helmet") { HazmatMaskItem(NTechArmorMaterials.hazmat, ArmorItem.Type.HELMET, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
-    val hazmatChestplate = register("hazmat_chestplate") { FullSetBonusArmorItem(NTechArmorMaterials.hazmat, ArmorItem.Type.CHESTPLATE, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
+//    val hazmatHelmet = register("hazmat_helmet") { HazmatMaskItem(NTechArmorMaterials.hazmat as net.minecraft.world.item.ArmorMaterial, ArmorItem.Type.HELMET, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
+//    val hazmatChestplate = register("hazmat_chestplate") { FullSetBonusArmorItem(NTechArmorMaterials.hazmat as net.minecraft.world.item.ArmorMaterial, ArmorItem.Type.CHESTPLATE, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
     val hazmatLeggings = register("hazmat_leggings") { FullSetBonusArmorItem(NTechArmorMaterials.hazmat, ArmorItem.Type.LEGGINGS, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
     val hazmatBoots = register("hazmat_boots") { FullSetBonusArmorItem(NTechArmorMaterials.hazmat, ArmorItem.Type.BOOTS, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }
     val advancedHazmatHelmet = register("advanced_hazmat_helmet") { HazmatMaskItem(NTechArmorMaterials.advancedHazmat, ArmorItem.Type.HELMET, FullSetBonusArmorItem.FullSetBonus.EMPTY, Properties()) }

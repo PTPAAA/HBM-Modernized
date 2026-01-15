@@ -10,15 +10,36 @@ import dev.ntmr.nucleartech.content.block.*
 import dev.ntmr.nucleartech.content.block.machine.physics.BreedingReactorBlock
 import dev.ntmr.nucleartech.content.block.machine.physics.CyclotronBlock
 import dev.ntmr.nucleartech.content.block.machine.physics.FELBlock
+import dev.ntmr.nucleartech.content.block.structure.DungeonBrickBlock
+import dev.ntmr.nucleartech.content.block.structure.RuinedReactorCoreBlock
+import dev.ntmr.nucleartech.content.block.structure.SpaceshipHullBlock
+import dev.ntmr.nucleartech.content.block.decor.ConcreteBlock
+import dev.ntmr.nucleartech.content.block.decor.ReinforcedGlassBlock
+import dev.ntmr.nucleartech.content.block.decor.IndustrialBlock
+import dev.ntmr.nucleartech.content.block.transport.ConveyorBlock
+import dev.ntmr.nucleartech.content.block.transport.FluidPipeBlock
+import dev.ntmr.nucleartech.content.block.machine.chemistry.CatalyticReformerBlock
+import dev.ntmr.nucleartech.content.block.machine.chemistry.CrackingTowerBlock
+import dev.ntmr.nucleartech.content.block.machine.processor.CrystallizerBlock
+import dev.ntmr.nucleartech.content.block.machine.processor.OreWasherBlock
+import dev.ntmr.nucleartech.content.block.machine.processor.ThermalCentrifugeBlock
+import dev.ntmr.nucleartech.content.block.machine.processor.ArcFurnaceBlock
+import dev.ntmr.nucleartech.content.block.explosive.BlackHoleBombBlock
+import dev.ntmr.nucleartech.content.block.explosive.PrototypeBlock
+import dev.ntmr.nucleartech.content.block.explosive.TsarBombaBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.LHCBlock
 import dev.ntmr.nucleartech.content.block.hazard.TaintBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.FusionCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.machine.physics.WatzCoreBlockEntity
-import dev.ntmr.nucleartech.content.block.machine.physics.FusionCoreBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.FusionMagnetBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.FusionHeaterBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.WatzCoreBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.WatzStructureBlock
-import dev.ntmr.nucleartech.content.block.machine.physics.WatzFuelInjectBlock
+import dev.ntmr.nucleartech.content.block.entity.FusionCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.watz.WatzCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.machine.FusionCoreBlock
+import dev.ntmr.nucleartech.content.block.machine.FusionMagnetBlock
+import dev.ntmr.nucleartech.content.block.machine.FusionHeaterBlock
+import dev.ntmr.nucleartech.content.block.machine.watz.WatzCoreBlock
+import dev.ntmr.nucleartech.content.block.machine.watz.WatzStructureBlock
+import dev.ntmr.nucleartech.content.block.machine.watz.WatzFuelInjectBlock
+import dev.ntmr.nucleartech.content.block.machine.oil.*
+import dev.ntmr.nucleartech.content.block.explosive.LandmineBlock
+import dev.ntmr.nucleartech.content.block.machine.ForcefieldGeneratorBlock
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPart
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPort
 import dev.ntmr.nucleartech.content.block.rbmk.*
@@ -312,14 +333,54 @@ object NTechBlocks : NTechRegistry<Block> {
     val cyclotron = register("cyclotron") { CyclotronBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
     val fel = register("fel") { FELBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
     val breedingReactor = register("breeding_reactor") { BreedingReactorBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val blackHoleBomb = register("black_hole_bomb") { BlackHoleBombBlock(Properties.of().mapColor(MapColor.METAL).strength(2.0F, 10.0F)) }
+    val lhc = register("lhc") { LHCBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val prototype = register("prototype") { PrototypeBlock(Properties.of().mapColor(MapColor.METAL).strength(2.0F, 10.0F)) }
+    val tsarBomba = register("tsar_bomba") { TsarBombaBlock(Properties.of().mapColor(MapColor.METAL).strength(2.0F, 10.0F)) }
+
+    // Phase 17
+    val oreWasher = register("ore_washer") { OreWasherBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val thermalCentrifuge = register("thermal_centrifuge") { ThermalCentrifugeBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val crystallizer = register("crystallizer") { CrystallizerBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val crackingTower = register("cracking_tower") { CrackingTowerBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val catalyticReformer = register("catalytic_reformer") { CatalyticReformerBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val arcFurnace = register("arc_furnace") { ArcFurnaceBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    
+    // Phase 18
+    val ruinedReactorCore = register("ruined_reactor_core") { RuinedReactorCoreBlock(Properties.of().mapColor(MapColor.METAL).strength(50.0F, 1200.0F)) }
+    val spaceshipHull = register("spaceship_hull") { SpaceshipHullBlock(Properties.of().mapColor(MapColor.METAL).strength(50.0F, 1200.0F)) }
+    val dungeonBrick = register("dungeon_brick") { DungeonBrickBlock(Properties.of().mapColor(MapColor.STONE).strength(50.0F, 1200.0F)) }
 
     val taint = register("taint") { TaintBlock(Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.0F, 1.0F).randomTicks().sound(SoundType.SLIME_BLOCK)) }
+    val radHotspot = register("rad_hotspot") { dev.ntmr.nucleartech.content.block.hazard.RadHotspotBlock(Properties.of().mapColor(MapColor.NONE).strength(-1.0F, 3600000.0F).noLootTable().noOcclusion()).radiation(50f) }
+
+    // Phase 25
+    val crashedUFO = register("crashed_ufo") { dev.ntmr.nucleartech.content.block.structure.CrashedUFOBlock() }
+    val teleporter = register("teleporter") { dev.ntmr.nucleartech.content.block.machine.TeleporterBlock() }
 
 
     // Decoration
     val decoRbmkBlock = register("deco_rbmk") { Block(Properties.of().mapColor(MapColor.METAL).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
     val decoRbmkSmoothBlock = register("deco_rbmk_smooth") { Block(Properties.of().mapColor(MapColor.METAL).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
 
+    // Phase 21: Decor
+    val concrete = register("concrete") { ConcreteBlock(Properties.of().mapColor(MapColor.STONE).strength(50F, 1200F).requiresCorrectToolForDrops().sound(SoundType.STONE)) }
+    val concreteBrick = register("concrete_brick") { ConcreteBlock(Properties.of().mapColor(MapColor.STONE).strength(50F, 1200F).requiresCorrectToolForDrops().sound(SoundType.STONE)) }
+    val concreteColored = DyeColor.values().associateWith { color ->
+        register("concrete_${color.name.lowercase()}") { ConcreteBlock(Properties.of().mapColor(color).strength(50F, 1200F).requiresCorrectToolForDrops().sound(SoundType.STONE)) }
+    }
+    
+    val reinforcedGlass = register("reinforced_glass") { ReinforcedGlassBlock(Properties.of().mapColor(MapColor.NONE).strength(10F, 1200F).sound(SoundType.GLASS).noOcclusion()) }
+    
+    val industrialBlock = register("industrial_block") { IndustrialBlock(Properties.of().mapColor(MapColor.METAL).strength(5F, 15F).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
+    val labTile = register("lab_tile") { IndustrialBlock(Properties.of().mapColor(MapColor.METAL).strength(5F, 15F).requiresCorrectToolForDrops().sound(SoundType.METAL)) }
+    val warningTape = register("warning_tape") { IndustrialBlock(Properties.of().mapColor(MapColor.WOOL).strength(0.5F).sound(SoundType.WOOL)) }
+
+    // Phase 22: Transport
+    val conveyor = register("conveyor") { ConveyorBlock(Properties.of().mapColor(MapColor.METAL).strength(2F).sound(SoundType.METAL).noOcclusion()) }
+    val fluidPipe = register("fluid_pipe") { FluidPipeBlock(Properties.of().mapColor(MapColor.METAL).strength(2F).sound(SoundType.METAL).noOcclusion()) }
+
     private fun getLightLevelLit13(state: BlockState) = if (state.getValue(BlockStateProperties.LIT)) 13 else 0
+    private fun getLightLevelNone(state: BlockState) = 0
 }
 
