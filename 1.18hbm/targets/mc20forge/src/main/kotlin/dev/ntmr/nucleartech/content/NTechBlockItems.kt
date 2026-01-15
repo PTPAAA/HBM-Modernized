@@ -254,4 +254,18 @@ object NTechBlockItems : NTechRegistry<Item> {
     val volcanoCore = register("volcano_core") { BlockItem(NTechBlocks.volcanoCore.get(), Item.Properties()) }
 
     val launchPadPlacer = register("launch_pad") { SpecialModelMultiBlockPlacerItem(NTechBlocks.launchPad.get(), ::LaunchPadBlockEntity, LaunchPadBlock::placeMultiBlock, Item.Properties()) }
+    
+    val forcefieldGenerator = register("forcefield_generator") { BlockItem(NTechBlocks.forcefieldGenerator.get(), Item.Properties()) }
+    
+    val fusionCore = register("fusion_core") { BlockItem(NTechBlocks.fusionCore.get(), Item.Properties()) }
+    val fusionMagnet = register("fusion_magnet") { BlockItem(NTechBlocks.fusionMagnet.get(), Item.Properties()) }
+    val fusionHeater = register("fusion_heater") { BlockItem(NTechBlocks.fusionHeater.get(), Item.Properties()) }
+
+    val watzCore = register("watz_core") { BlockItem(NTechBlocks.watzCore.get(), Item.Properties()) }
+    val watzStructure = register("watz_structure") { BlockItem(NTechBlocks.watzStructure.get(), Item.Properties()) }
+    val watzFuelInject = register("watz_fuel_inject") { BlockItem(NTechBlocks.watzFuelInject.get(), Item.Properties()) }
+    
+    val oilRefinery = register("oil_refinery") { BlockItem(NTechBlocks.oilRefinery.get(), Item.Properties()) }
+    val refineryStructure = register("refinery_structure") { BlockItem(NTechBlocks.refineryStructure.get(), Item.Properties()) }
+    val landmine = register("landmine") { BlockItem(NTechBlocks.landmine.get(), Item.Properties()) }
 }

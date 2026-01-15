@@ -154,6 +154,11 @@ object ClientRegistries {
             registerEntityRenderer(NTechEntities.meteor.get(), ::MeteorRenderer)
 
             registerEntityRenderer(NTechEntities.wasteItemEntity.get(), ::ItemEntityRenderer)
+
+            registerEntityRenderer(NTechEntities.bullet.get(), ::NoopRenderer)
+            
+            registerEntityRenderer(NTechEntities.gunTurret.get(), ::NoopRenderer)
+            registerEntityRenderer(NTechEntities.missileTurret.get(), ::NoopRenderer)
         }
     }
 

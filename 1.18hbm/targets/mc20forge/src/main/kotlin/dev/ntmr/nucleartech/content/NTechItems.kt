@@ -583,6 +583,10 @@ object NTechItems : NTechRegistry<Item> {
     val quadrupleAdvancedPowerCell = register("quadruple_advanced_power_cell") { BatteryItem(960_000, 2_000, 2_000, Properties()) }
     val twelveFoldAdvancedPowerCell = register("twelvefold_advanced_power_cell") { BatteryItem(2_880_000, 2_000, 2_000, Properties()) }
     val lithiumBattery = register("lithium_battery") { BatteryItem(1_000_000, 4_000, 4_000, Properties()) }
+    
+    val gunTurret = register("gun_turret") { TurretItem({ NTechEntities.gunTurret.get() }, Properties().stacksTo(1)) }
+    val missileTurret = register("missile_turret") { TurretItem({ NTechEntities.missileTurret.get() }, Properties().stacksTo(1)) }
+
     val lithiumPowerCell = register("lithium_power_cell") { BatteryItem(3_000_000, 4_000, 4_000, Properties()) }
     val tripleLithiumPowerCell = register("triple_lithium_power_cell") { BatteryItem(9_000_000, 4_000, 4_000, Properties()) }
     val sixfoldLithiumPowerCell = register("sixfold_lithium_power_cell") { BatteryItem(18_000_000, 4_000, 4_000, Properties()) }
@@ -599,14 +603,23 @@ object NTechItems : NTechRegistry<Item> {
     val sparkArcaneDiracSea = register("spark_arcane_dirac_sea") { BatteryItem(1_000_000_000_000L, 80_000_000, 80_000_000, Properties()) }
     val sparkSolidSpaceTimeCrystal = register("spark_solid_space_time_crystal") { BatteryItem(4_000_000_000_000L, 800_000_000, 800_000_000, Properties()) }
     val sparkLudicrousPhysicsDefyingEnergyStorageUnit = register("spark_ludicrous_physics_defying_energy_storage_unit") { BatteryItem(400_000_000_000_000L, 800_000_000, 800_000_000, Properties()) }
-    // TODO electronium cube
+
     val infiniteBattery = register("infinite_battery") { BatteryOfInfinityItem(Properties()) }
     val singleUseBattery = register("single_use_battery") { BatteryItem(6_000, 0, 400, Properties()) }
     val largeSingleUseBattery = register("large_single_use_battery") { BatteryItem(14_000, 0, 400, Properties()) }
     val potatoBattery = register("potato_battery") { BatteryItem(400, 0, 400, Properties()) }
-    // TODO PotatOS
+
     val steamPoweredEnergyStorageTank = register("steam_powered_energy_storage_tank") { BatteryItem(240_000, 1_200, 24_000, Properties()) }
     val largeSteamPoweredEnergyStorageTank = register("large_steam_powered_energy_storage_tank") { BatteryItem(400_000, 2_000, 40_000, Properties()) }
+
+    // Guns & Ammo
+    val ammo357Magnum = register("ammo_357_magnum") { AmmoItem(Properties()) }
+    val ammo556Nato = register("ammo_556_nato") { AmmoItem(Properties()) }
+    val ammoRocket = register("ammo_rocket") { AmmoItem(Properties()) }
+
+    val gunRevolver = register("gun_revolver") { RevolverItem(Properties().stacksTo(1)) }
+    val gunAssaultRifle = register("gun_assault_rifle") { AssaultRifleItem(Properties().stacksTo(1)) }
+    val gunRocketLauncher = register("gun_rocket_launcher") { RocketLauncherItem(Properties().stacksTo(1)) }
 
     val stoneFlatStamp = register("stone_flat_stamp") { Item(Properties().durability(10)) }
     val stonePlateStamp = register("stone_plate_stamp") { Item(Properties().durability(10)) }
@@ -846,9 +859,9 @@ object NTechItems : NTechRegistry<Item> {
     val combineSteelChestplate = register("combine_steel_chestplate") { FullSetBonusArmorItem(NTechArmorMaterials.combineSteel, ArmorItem.Type.CHESTPLATE, FullSetBonusArmorItem.FullSetBonus.copyFrom(combineSteelHelmet.get()), Properties()) }
     val combineSteelLeggings = register("combine_steel_leggings") { FullSetBonusArmorItem(NTechArmorMaterials.combineSteel, ArmorItem.Type.LEGGINGS, FullSetBonusArmorItem.FullSetBonus.copyFrom(combineSteelHelmet.get()), Properties()) }
     val combineSteelBoots = register("combine_steel_boots") { FullSetBonusArmorItem(NTechArmorMaterials.combineSteel, ArmorItem.Type.BOOTS, FullSetBonusArmorItem.FullSetBonus.copyFrom(combineSteelHelmet.get()), Properties()) }
-    val paAAlloyChestplate = register("paa_alloy_chestplate") { FullSetBonusArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.CHESTPLATE, FullSetBonusArmorItem.FullSetBonus(damageCap = 6F, damageMod = .3F, noHelmet = true, effects = listOf(MobEffectInstance(MobEffects.DIG_SPEED, 20, 0, false, false, false))), Properties()) }
-    val paAAlloyLeggings = register("paa_alloy_leggings") { FullSetBonusArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.LEGGINGS, FullSetBonusArmorItem.FullSetBonus.copyFrom(paAAlloyChestplate.get()), Properties()) }
-    val paAAlloyBoots = register("paa_alloy_boots") { FullSetBonusArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.BOOTS, FullSetBonusArmorItem.FullSetBonus.copyFrom(paAAlloyChestplate.get()), Properties()) }
+    val paAAlloyChestplate = register("paa_alloy_chestplate") { PowerArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.CHESTPLATE, FullSetBonusArmorItem.FullSetBonus(damageCap = 6F, damageMod = .3F, noHelmet = true, effects = listOf(MobEffectInstance(MobEffects.DIG_SPEED, 20, 0, false, false, false))), Properties()) }
+    val paAAlloyLeggings = register("paa_alloy_leggings") { PowerArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.LEGGINGS, FullSetBonusArmorItem.FullSetBonus.copyFrom(paAAlloyChestplate.get() as PowerArmorItem), Properties()) }
+    val paAAlloyBoots = register("paa_alloy_boots") { PowerArmorItem(NTechArmorMaterials.paAAlloy, ArmorItem.Type.BOOTS, FullSetBonusArmorItem.FullSetBonus.copyFrom(paAAlloyChestplate.get() as PowerArmorItem), Properties()) }
     val schrabidiumHelmet = register("schrabidium_helmet") {
         FullSetBonusArmorItem(
             NTechArmorMaterials.schrabidium, ArmorItem.Type.HELMET, FullSetBonusArmorItem.FullSetBonus(

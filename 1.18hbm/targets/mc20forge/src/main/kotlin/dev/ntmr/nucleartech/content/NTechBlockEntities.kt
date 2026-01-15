@@ -101,6 +101,11 @@ object NTechBlockEntities : NTechRegistry<BlockEntityType<*>> {
     val volcanoBlockEntityType = register("volcano") { createType(::VolcanoBlockEntity, NTechBlocks.volcanoCore.get()) }
     val launchPadBlockEntityType = register("launch_pad") { createType(::LaunchPadBlockEntity, NTechBlocks.launchPad.get()) }
 
+    val forcefieldGeneratorBlockEntityType = register("forcefield_generator") { createType(::ForcefieldGeneratorBlockEntity, NTechBlocks.forcefieldGenerator.get()) }
+    val fusionCoreBlockEntityType = register("fusion_core") { createType(::FusionCoreBlockEntity, NTechBlocks.fusionCore.get()) }
+    val watzCoreBlockEntityType = register("watz_core") { createType(::WatzCoreBlockEntity, NTechBlocks.watzCore.get()) }
+    val oilRefineryBlockEntityType = register("oil_refinery") { createType(::OilRefineryBlockEntity, NTechBlocks.oilRefinery.get()) }
+
     private fun <T : BlockEntity> createType(supplier: BlockEntityType.BlockEntitySupplier<T>, vararg blocks: Block) = BlockEntityType.Builder.of(supplier, *blocks).build()
     private fun <T : BlockEntity> BlockEntityType.Builder<T>.build() = build(null)
 }

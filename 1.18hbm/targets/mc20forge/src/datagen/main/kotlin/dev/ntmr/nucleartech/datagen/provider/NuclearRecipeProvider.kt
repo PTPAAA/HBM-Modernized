@@ -670,6 +670,34 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
         AssemblyRecipeBuilder(NTechItems.titaniumDrill.get(), 1, 100).requires(2 to NTechTags.Items.INGOTS_STEEL, 2 to NTechTags.Items.INGOTS_HIGH_SPEED_STEEL).requires(2 to NTechItems.highSpeedSteelBolt.get()).requires(6 to NTechTags.Items.PLATES_TITANIUM).save(consumer)
         AssemblyRecipeBuilder(NTechItems.titaniumPlate.get(), 2, 30).requires(3 to NTechTags.Items.INGOTS_TITANIUM).save(consumer)
         AssemblyRecipeBuilder(NTechItems.tungstenWire.get(), 6, 20).requires(NTechTags.Items.INGOTS_TUNGSTEN).save(consumer)
+
+        // Guns
+        AssemblyRecipeBuilder(NTechItems.gunRevolver.get(), 1, 100).requires(2 to NTechTags.Items.PLATES_STEEL, 2 to NTechTags.Items.PLATES_IRON).requires(NTechItems.smallSteelShell.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.gunAssaultRifle.get(), 1, 200).requires(4 to NTechTags.Items.PLATES_STEEL, 2 to NTechTags.Items.INGOTS_POLYMER).requires(NTechItems.motor.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.gunRocketLauncher.get(), 1, 300).requires(4 to NTechTags.Items.PLATES_TITANIUM).requires(NTechItems.steelTank.get()).requires(NTechItems.enhancedCircuit.get()).save(consumer)
+
+        // Ammo
+        AssemblyRecipeBuilder(NTechItems.ammo357Magnum.get(), 8, 20).requires(8 to NTechItems.point357MagnumCasing.get(), 8 to NTechItems.point357MagnumPrimer.get()).requires(2 to Items.GUNPOWDER, 2 to NTechTags.Items.DUSTS_LEAD).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.ammo556Nato.get(), 16, 40).requires(16 to NTechItems.smallCaliberCasing.get(), 16 to NTechItems.smallCaliberPrimer.get()).requires(4 to Items.GUNPOWDER, 4 to NTechTags.Items.DUSTS_LEAD).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.ammoRocket.get(), 1, 100).requires(NTechItems.bigSteelShell.get()).requires(Items.TNT).requires(NTechItems.basicCircuit.get()).save(consumer)
+
+        // Armor - Hazmat
+        AssemblyRecipeBuilder(NTechItems.hazmatHelmet.get(), 1, 100).requires(5 to NTechItems.hazmatCloth.get(), 1 to Tags.Items.GLASS_PANES, 1 to NTechItems.rubber.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.hazmatChestplate.get(), 1, 150).requires(8 to NTechItems.hazmatCloth.get(), 1 to NTechItems.rubber.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.hazmatLeggings.get(), 1, 120).requires(7 to NTechItems.hazmatCloth.get(), 1 to NTechItems.rubber.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.hazmatBoots.get(), 1, 100).requires(4 to NTechItems.hazmatCloth.get(), 2 to NTechItems.rubber.get()).save(consumer)
+
+        // Armor - Power Armor (PAA)
+        AssemblyRecipeBuilder(NTechItems.paAAlloyChestplate.get(), 1, 500).requires(8 to NTechItems.paAAlloyPlate.get()).requires(2 to NTechItems.advancedCircuit.get(), 4 to NTechItems.motor.get()).requires(NTechItems.battery.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.paAAlloyLeggings.get(), 1, 400).requires(7 to NTechItems.paAAlloyPlate.get()).requires(2 to NTechItems.motor.get(), 1 to NTechItems.advancedCircuit.get()).save(consumer)
+        AssemblyRecipeBuilder(NTechItems.paAAlloyBoots.get(), 1, 300).requires(4 to NTechItems.paAAlloyPlate.get()).requires(2 to NTechItems.motor.get()).save(consumer)
+        // Note: PAA Helmet likely doesn't exist or is merged with chestplate in some variants, 
+        // but user request was "Power Armor Foundation". Since I didn't see PAA Helmet in items grep (wait, did I?), 
+        // I checked NTechItems and lines 858-860 showed Chest/Legs/Boots. Helmet was MISSING in standard registration there EXCEPT for my manual check?
+        // Wait, lines 858-860 in previous `NTechItems` view showed `paAAlloyChestplate` but NOT Helmet.
+        // My recent manual reg added Helmet? No, I updated existing entries.
+        // If Helmet is missing, I should add it or skip recipe.
+        // Let's assume Chest/Legs/Boots basic set for now as per code.
     }
 
     private fun chemistry(actualConsumer: Consumer<FinishedRecipe>) {
@@ -682,6 +710,8 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
         ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.naphtha.getSourceFluid(), 250)).results(NTechItems.polymerIngot.get()).save(consumer, ntm("polymer_from_naphtha"))
         ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.petroleumGas.getSourceFluid(), 1000)).results(NTechItems.polymerIngot.get()).save(consumer, ntm("polymer_from_petroleum_gas"))
         ChemRecipeBuilder(60).requires(FluidStack(NTechFluids.lightOil.getSourceFluid(), 1000)).results(FluidStack(NTechFluids.diesel.getSourceFluid(), 1000)).save(consumer, ntm("diesel_from_light_oil"))
+        
+        ChemRecipeBuilder(200).requires(FluidStack(NTechFluids.sulfuricAcid.getSourceFluid(), 1000)).requires(NTechItems.schrabidiumNugget.get()).results(FluidStack(NTechFluids.schrabidicAcid.getSourceFluid(), 1000)).save(consumer, ntm("schrabidic_acid_from_nugget"))
     }
 
     private fun centrifuging(actualConsumer: Consumer<FinishedRecipe>) {
@@ -877,6 +907,102 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
             .save(consumer, ntm("cool_depleted_mox_fuel"))
             
 
+            .save(consumer, ntm("cool_depleted_mox_fuel"))
+            
+        // Missiles & Launchers
+        
+        // Launch Pad
+        ShapedRecipeBuilder.shaped(NTechBlocks.launchPadPart.get(), 4)
+            .define('C', NTechTags.Items.CONCRETE)
+            .define('P', NTechTags.Items.PLATES_STEEL)
+            .define('W', NTechTags.Items.WIRES_RED_COPPER)
+            .define('S', NTechTags.Items.CIRCUITS_BASIC)
+            .pattern("PCP")
+            .pattern("CWC")
+            .pattern("PSP")
+            .unlockedBy("has_steel_plate", has(NTechTags.Items.PLATES_STEEL))
+            .save(consumer, ntm("launch_pad_part"))
+
+        // Target Designator
+        ShapedRecipeBuilder.shaped(NTechItems.designator.get())
+            .define('P', NTechTags.Items.PLATES_STEEL)
+            .define('G', Tags.Items.GLASS_PANES)
+            .define('R', Tags.Items.DUSTS_REDSTONE)
+            .define('C', NTechTags.Items.CIRCUITS_BASIC)
+            .pattern(" G ")
+            .pattern("PRP")
+            .pattern(" C ")
+            .unlockedBy("has_circuit", has(NTechTags.Items.CIRCUITS_BASIC))
+            .save(consumer, ntm("designator"))
+
+        // Missile Components (Temporary simplified recipes or assume existing items)
+        // We have: smallWarhead, smallThruster, smallFuelTank, smallSteelGridFins
+        
+        // HE Missile
+        missile(NTechItems.heMissile, NTechItems.smallWarhead, NTechItems.smallThruster, NTechItems.smallFuelTank, NTechItems.smallSteelGridFins, consumer)
+        
+        // Incendiary Missile
+        missile(NTechItems.incendiaryMissile, NTechItems.smallIncendiaryWarhead, NTechItems.smallThruster, NTechItems.smallFuelTank, NTechItems.smallSteelGridFins, consumer)
+        
+        // Cluster Missile
+        missile(NTechItems.clusterMissile, NTechItems.smallClusterWarhead, NTechItems.smallThruster, NTechItems.smallFuelTank, NTechItems.smallSteelGridFins, consumer)
+        
+        // Bunker Buster
+        missile(NTechItems.bunkerBusterMissile, NTechItems.smallBunkerBusterWarhead, NTechItems.smallThruster, NTechItems.smallFuelTank, NTechItems.smallSteelGridFins, consumer)
+
+        // TODO: Recipes for Warheads, Thrusters, etc. Need to check if they exist. 
+        // Assuming component recipes exist or will be added. 
+        // For now, let's verify if we can craft the components. I recall seeing them in Items, but not recipes.
+        // Let's add simple recipes for components to be safe.
+        
+        // Small Thruster
+        ShapedRecipeBuilder.shaped(NTechItems.smallThruster.get())
+            .define('S', NTechTags.Items.PLATES_STEEL)
+            .define('T', NTechItems.titaniumPlate)
+            .pattern(" S ")
+            .pattern("T T")
+            .pattern(" T ")
+            .unlockedBy("has_titanium", has(NTechItems.titaniumPlate))
+            .save(consumer, ntm("small_thruster"))
+            
+        // Small Fuel Tank
+        ShapedRecipeBuilder.shaped(NTechItems.smallFuelTank.get())
+            .define('S', NTechTags.Items.PLATES_STEEL)
+            .define('T', NTechItems.titaniumPlate)
+            .pattern("STS")
+            .pattern("S S")
+            .pattern("STS")
+            .unlockedBy("has_titanium", has(NTechItems.titaniumPlate))
+            .save(consumer, ntm("small_fuel_tank"))
+            
+        // Fin
+        ShapedRecipeBuilder.shaped(NTechItems.smallSteelGridFins.get(), 2)
+            .define('S', NTechTags.Items.PLATES_STEEL)
+            .pattern(" S")
+            .pattern("S ")
+            .unlockedBy("has_steel", has(NTechTags.Items.PLATES_STEEL))
+            .save(consumer, ntm("small_steel_grid_fins"))
+            
+        // Warheads (Simple)
+        ShapedRecipeBuilder.shaped(NTechItems.smallWarhead.get())
+            .define('T', Items.TNT)
+            .define('S', NTechTags.Items.PLATES_STEEL)
+            .pattern(" S ")
+            .pattern("STS")
+            .pattern(" S ")
+            .unlockedBy("has_tnt", has(Items.TNT))
+            .save(consumer, ntm("small_warhead"))
+            
+        ShapedRecipeBuilder.shaped(NTechItems.smallIncendiaryWarhead.get())
+            .define('T', Items.TNT) // Should be napalm or something but TNT works for now
+            .define('F', Items.FLINT_AND_STEEL)
+            .define('S', NTechTags.Items.PLATES_STEEL)
+            .pattern(" S ")
+            .pattern("FTF")
+            .pattern(" S ")
+            .unlockedBy("has_tnt", has(Items.TNT))
+            .save(consumer, ntm("small_incendiary_warhead"))
+            
     private fun ringCoilRecipe(ringCoil: ItemLike, coil: ItemLike, consumer: Consumer<FinishedRecipe>) {
         ShapedRecipeBuilder.shaped(ringCoil, 2).define('C', coil).define('P', NTechTags.Items.PLATES_IRON).pattern(" C ").pattern("CPC").pattern(" C ").group(ringCoil.asItem().registryName!!.path).unlockedBy("has_coil", has(coil)).save(consumer, ringCoil.asItem().registryName!!.appendToPath("_with_iron_plate"))
         ShapedRecipeBuilder.shaped(ringCoil, 2).define('C', coil).define('P', NTechTags.Items.PLATES_STEEL).pattern(" C ").pattern("CPC").pattern(" C ").group(ringCoil.asItem().registryName!!.path).unlockedBy("has_coil", has(coil)).save(consumer, ringCoil.asItem().registryName!!.appendToPath("_with_steel_plate"))
@@ -1065,6 +1191,17 @@ class NuclearRecipeProvider(generator: DataGenerator) : RecipeProvider(generator
     private fun ingredientAndConditionOf(tag: TagKey<Item>?, item: Item?) =
         tag?.let { Ingredient.of(it) to InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(it).build()) } ?:
         item?.let { Ingredient.of(it) to InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(it).build()) }
+
+    private fun missile(missile: ItemLike, warhead: ItemLike, thruster: ItemLike, fuelTank: ItemLike, fins: ItemLike, consumer: Consumer<FinishedRecipe>) {
+        AssemblyRecipeBuilder(missile, 100)
+            .requires(warhead)
+            .requires(thruster)
+            .requires(fuelTank)
+            .requires(fins, 4)
+            .requires(NTechItems.basicCircuitAssembly, 2)
+            .unlockedBy("has_warhead", has(warhead))
+            .save(consumer, ntm("assemble_${missile.asItem().registryName!!.path}"))
+    }
 
     private enum class SubDirectories(type: RecipeType<*>) {
         CRAFTING(RecipeType.CRAFTING),

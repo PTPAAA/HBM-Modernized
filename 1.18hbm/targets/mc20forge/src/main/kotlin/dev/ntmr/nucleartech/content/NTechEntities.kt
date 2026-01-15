@@ -43,4 +43,9 @@ object NTechEntities : NTechRegistry<EntityType<*>> {
     val shrapnel = register("shrapnel") { EntityType.Builder.of(::Shrapnel, MobCategory.MISC).sized(.5F, .5F).updateInterval(20).clientTrackingRange(10).build("shrapnel") }
     val volcanicShrapnel = register("volcanic_shrapnel") { EntityType.Builder.of(::VolcanicShrapnel, MobCategory.MISC).sized(.5F, .5F).updateInterval(20).clientTrackingRange(16).build("volcanic_shrapnel") }
     val wasteItemEntity = register("waste_item") { EntityType.Builder.of(::WasteItemEntity, MobCategory.MISC).sized(.25F, .25F).clientTrackingRange(6).updateInterval(20).build("waste_item") }
+
+    val bullet = register("bullet") { EntityType.Builder.of(::EntityBullet, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(20).build("bullet") }
+    
+    val gunTurret = register("gun_turret") { EntityType.Builder.of(::GunTurretEntity, MobCategory.MISC).sized(0.8F, 0.8F).build("gun_turret") }
+    val missileTurret = register("missile_turret") { EntityType.Builder.of(::MissileTurretEntity, MobCategory.MISC).sized(1.2F, 1.2F).build("missile_turret") }
 }

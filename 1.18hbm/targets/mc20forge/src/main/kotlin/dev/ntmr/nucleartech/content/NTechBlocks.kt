@@ -278,6 +278,23 @@ object NTechBlocks : NTechRegistry<Block> {
 
     val genericMultiBlockPart = register("generic_multi_block_part") { MultiBlockPart() }
     val genericMultiBlockPort = register("generic_multi_block_port") { MultiBlockPort() }
+    
+    val forcefield = register("forcefield") { ForcefieldBlock(Properties.of().mapColor(MapColor.NONE).strength(-1.0F, 3600000.0F).noLootTable().isValidSpawn { _, _, _, _ -> false }) }
+    val forcefieldGenerator = register("forcefield_generator") { ForcefieldGeneratorBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    
+    val fusionCore = register("fusion_core") { FusionCoreBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val fusionMagnet = register("fusion_magnet") { FusionMagnetBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val fusionHeater = register("fusion_heater") { FusionHeaterBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    
+    val watzCore = register("watz_core") { WatzCoreBlock(Properties.of().mapColor(MapColor.METAL).strength(10.0F, 20.0F)) }
+    val watzStructure = register("watz_structure") { WatzStructureBlock(Properties.of().mapColor(MapColor.METAL).strength(10.0F, 20.0F)) }
+    val watzFuelInject = register("watz_fuel_inject") { WatzFuelInjectBlock(Properties.of().mapColor(MapColor.METAL).strength(10.0F, 20.0F)) }
+
+    val oilRefinery = register("oil_refinery") { OilRefineryBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val refineryStructure = register("refinery_structure") { RefineryStructureBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    
+    val landmine = register("landmine") { LandmineBlock(Properties.of().mapColor(MapColor.METAL).strength(0.5F).noOcclusion()) }
+
     val oilPipe = register("oil_pipe") { Block(Properties.of().mapColor(MapColor.METAL).strength(5F, 10F).sound(SoundType.METAL)) }
 
     // Decoration

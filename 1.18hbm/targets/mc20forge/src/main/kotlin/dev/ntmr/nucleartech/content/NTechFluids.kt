@@ -62,6 +62,8 @@ object NTechFluids : NTechRegistry<Fluid> {
     val heavyOil = registerFluid("heavy_oil", FluidAttributes.builder(ntm("fluid/heavy_oil_still"), ntm("fluid/heavy_oil_flow")).density(2000).viscosity(2000), ::Source, ::Flowing, ::BucketItem, propertiesModifier = { tickRate(40).levelDecreasePerBlock(5) })
     val lightOil = registerFluid("light_oil", FluidAttributes.builder(ntm("fluid/light_oil_still"), ntm("fluid/light_oil_flow")).density(800), ::Source, ::Flowing, ::BucketItem, propertiesModifier = { tickRate(20).levelDecreasePerBlock(5) })
     val naphtha = registerFluid("naphtha", FluidAttributes.builder(ntm("fluid/naphtha_still"), ntm("fluid/naphtha_flow")).density(700), ::Source, ::Flowing, ::BucketItem, propertiesModifier = { tickRate(10).levelDecreasePerBlock(5) })
+    
+    val schrabidicAcid = registerFluid("schrabidic_acid", FluidAttributes.builder(ntm("fluid/schrabidic_acid_still"), ntm("fluid/schrabidic_acid_flow")).density(1200).temperature(350).mapColor(0xFF0000), ::Source, ::Flowing, ::BucketItem, propertiesModifier = { tickRate(10).levelDecreasePerBlock(5) })
     val petroleumGas = registerFluid("petroleum_gas", FluidAttributes.builder(ntm("fluid/petroleum_gas_still"), ntm("fluid/petroleum_gas_still")).gaseous().density(-50).sound(null), GaseousFluid::Source, GaseousFluid::Flowing, ::BucketItem, propertiesModifier = { tickRate(10) })
     val sulfuricAcid = registerFluid("sulfuric_acid", FluidAttributes.builder(ntm("fluid/sulfuric_acid_still"), ntm("fluid/sulfuric_acid_flow")).mapColor(0xFFFCD703.toInt()).density(1800), ::Source, ::Flowing, ::BucketItem, propertiesModifier = { tickRate(20).levelDecreasePerBlock(5) })
 
