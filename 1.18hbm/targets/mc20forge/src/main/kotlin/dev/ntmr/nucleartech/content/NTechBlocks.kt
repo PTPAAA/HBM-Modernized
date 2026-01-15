@@ -7,6 +7,18 @@ package dev.ntmr.nucleartech.content
 
 import dev.ntmr.nucleartech.MODID
 import dev.ntmr.nucleartech.content.block.*
+import dev.ntmr.nucleartech.content.block.machine.physics.BreedingReactorBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.CyclotronBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.FELBlock
+import dev.ntmr.nucleartech.content.block.hazard.TaintBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.FusionCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.machine.physics.WatzCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.machine.physics.FusionCoreBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.FusionMagnetBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.FusionHeaterBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.WatzCoreBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.WatzStructureBlock
+import dev.ntmr.nucleartech.content.block.machine.physics.WatzFuelInjectBlock
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPart
 import dev.ntmr.nucleartech.content.block.multi.MultiBlockPort
 import dev.ntmr.nucleartech.content.block.rbmk.*
@@ -296,6 +308,13 @@ object NTechBlocks : NTechRegistry<Block> {
     val landmine = register("landmine") { LandmineBlock(Properties.of().mapColor(MapColor.METAL).strength(0.5F).noOcclusion()) }
 
     val oilPipe = register("oil_pipe") { Block(Properties.of().mapColor(MapColor.METAL).strength(5F, 10F).sound(SoundType.METAL)) }
+    
+    val cyclotron = register("cyclotron") { CyclotronBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val fel = register("fel") { FELBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+    val breedingReactor = register("breeding_reactor") { BreedingReactorBlock(Properties.of().mapColor(MapColor.METAL).strength(5.0F, 10.0F)) }
+
+    val taint = register("taint") { TaintBlock(Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.0F, 1.0F).randomTicks().sound(SoundType.SLIME_BLOCK)) }
+
 
     // Decoration
     val decoRbmkBlock = register("deco_rbmk") { Block(Properties.of().mapColor(MapColor.METAL).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)) }

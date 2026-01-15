@@ -45,6 +45,7 @@ object CreativeTabPopulator {
             }
             // Add all block items from NTechBlockItems
             NTechBlockItems.forgeRegistry.entries.forEach { item ->
+
                 event.accept(item.get())
             }
         }

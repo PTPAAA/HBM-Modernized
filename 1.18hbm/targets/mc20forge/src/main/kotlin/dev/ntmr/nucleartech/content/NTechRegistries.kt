@@ -12,6 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.registries.RegistryBuilder
 
 import dev.ntmr.nucleartech.MODID
+import dev.ntmr.nucleartech.content.worldgen.NTechStructures
 import net.minecraft.resources.ResourceLocation
 object NTechRegistries {
     private val registries = listOf<NTechRegistry<*>>(
@@ -29,6 +30,7 @@ object NTechRegistries {
         NTechWorldFeatures.Features,
         NTechSounds,
         NTechParticles,
+        NTechStructures,
     )
 
     // Initialization of non-registry objects

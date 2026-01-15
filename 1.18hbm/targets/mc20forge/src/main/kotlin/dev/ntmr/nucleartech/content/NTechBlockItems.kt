@@ -268,4 +268,9 @@ object NTechBlockItems : NTechRegistry<Item> {
     val oilRefinery = register("oil_refinery") { BlockItem(NTechBlocks.oilRefinery.get(), Item.Properties()) }
     val refineryStructure = register("refinery_structure") { BlockItem(NTechBlocks.refineryStructure.get(), Item.Properties()) }
     val landmine = register("landmine") { BlockItem(NTechBlocks.landmine.get(), Item.Properties()) }
+    
+    val cyclotron = register("cyclotron") { BlockItem(NTechBlocks.cyclotron.get(), Item.Properties()) }
+    val fel = register("fel") { BlockItem(NTechBlocks.fel.get(), Item.Properties()) }
+    val breedingReactor = register("breeding_reactor") { BlockItem(NTechBlocks.breedingReactor.get(), Item.Properties()) }
+    val taint = register("taint") { BlockItem(NTechBlocks.taint.get(), Item.Properties()) }
 }

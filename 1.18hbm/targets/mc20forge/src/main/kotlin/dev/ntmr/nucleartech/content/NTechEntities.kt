@@ -8,6 +8,8 @@ package dev.ntmr.nucleartech.content
 import dev.ntmr.nucleartech.MODID
 import dev.ntmr.nucleartech.content.entity.*
 import dev.ntmr.nucleartech.content.entity.missile.*
+import dev.ntmr.nucleartech.content.entity.monster.*
+import dev.ntmr.nucleartech.content.entity.turret.*
 import dev.ntmr.nucleartech.content.NTechRegistry
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
@@ -48,4 +50,8 @@ object NTechEntities : NTechRegistry<EntityType<*>> {
     
     val gunTurret = register("gun_turret") { EntityType.Builder.of(::GunTurretEntity, MobCategory.MISC).sized(0.8F, 0.8F).build("gun_turret") }
     val missileTurret = register("missile_turret") { EntityType.Builder.of(::MissileTurretEntity, MobCategory.MISC).sized(1.2F, 1.2F).build("missile_turret") }
+    
+    val taintCrawler = register("taint_crawler") { EntityType.Builder.of(::TaintCrawlerEntity, MobCategory.MONSTER).sized(0.5F, 0.4F).build("taint_crawler") }
+    val cyberCrab = register("cyber_crab") { EntityType.Builder.of(::CyberCrabEntity, MobCategory.MONSTER).sized(0.6F, 0.5F).build("cyber_crab") }
+    val maskMan = register("mask_man") { EntityType.Builder.of(::MaskManEntity, MobCategory.MONSTER).sized(0.6F, 1.8F).build("mask_man") }
 }

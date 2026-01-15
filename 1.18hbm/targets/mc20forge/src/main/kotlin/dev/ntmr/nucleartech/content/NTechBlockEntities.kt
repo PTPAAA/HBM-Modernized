@@ -10,6 +10,16 @@ import dev.ntmr.nucleartech.content.block.entity.AssemblerBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.BlastFurnaceBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.CentrifugeBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.ChemPlantBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.BreedingReactorBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.FELBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.FusionCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.WatzCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.CyclotronBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.FELBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.FusionCoreBlockEntity
+import dev.ntmr.nucleartech.content.block.entity.physics.WatzCoreBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.CombustionGeneratorBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.ElectricFurnaceBlockEntity
 import dev.ntmr.nucleartech.content.block.entity.FatManBlockEntity
@@ -105,6 +115,9 @@ object NTechBlockEntities : NTechRegistry<BlockEntityType<*>> {
     val fusionCoreBlockEntityType = register("fusion_core") { createType(::FusionCoreBlockEntity, NTechBlocks.fusionCore.get()) }
     val watzCoreBlockEntityType = register("watz_core") { createType(::WatzCoreBlockEntity, NTechBlocks.watzCore.get()) }
     val oilRefineryBlockEntityType = register("oil_refinery") { createType(::OilRefineryBlockEntity, NTechBlocks.oilRefinery.get()) }
+    val cyclotronBlockEntityType = register("cyclotron") { createType(::CyclotronBlockEntity, NTechBlocks.cyclotron.get()) }
+    val felBlockEntityType = register("fel") { createType(::FELBlockEntity, NTechBlocks.fel.get()) }
+    val breedingReactorBlockEntityType = register("breeding_reactor") { createType(::BreedingReactorBlockEntity, NTechBlocks.breedingReactor.get()) }
 
     private fun <T : BlockEntity> createType(supplier: BlockEntityType.BlockEntitySupplier<T>, vararg blocks: Block) = BlockEntityType.Builder.of(supplier, *blocks).build()
     private fun <T : BlockEntity> BlockEntityType.Builder<T>.build() = build(null)
