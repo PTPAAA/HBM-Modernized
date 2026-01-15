@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "nucleartech:lignite_ore",
+    "nucleartech:white_phosphorus_block",
+    "nucleartech:red_phosphorus_block",
+    "nucleartech:coated_red_copper_cable",
+    "nucleartech:coated_fluid_duct"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "nucleartech:australian_ore",
+    "nucleartech:weidite",
+    "nucleartech:reiite",
+    "nucleartech:brightblende_ore",
+    "nucleartech:dellite",
+    "nucleartech:dollar_green_mineral",
+    "nucleartech:deepslate_australian_ore",
+    "nucleartech:dineutronium_anvil"
+  ]
+}

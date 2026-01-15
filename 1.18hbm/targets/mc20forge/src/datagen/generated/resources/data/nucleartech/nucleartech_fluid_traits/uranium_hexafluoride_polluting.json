@@ -1,0 +1,16 @@
+{
+  "trait": "nucleartech:polluting",
+  "tag": "#forge:uranium_hexafluoride",
+  "data": {
+    "burned": {
+      "soot": 0.0,
+      "poison": 5.0E-4,
+      "heavy_metal": 0.0
+    },
+    "spilled": {
+      "soot": 0.0,
+      "poison": 5.0E-4,
+      "heavy_metal": 0.0
+    }
+  }
+}

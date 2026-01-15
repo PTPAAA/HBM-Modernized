@@ -1,0 +1,33 @@
+/*
+SPDX-FileCopyrightText: 2023-2024 MartinTheDragon <martin@ntmr.dev>
+SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+plugins {
+    alias(libs.plugins.kotlin.jvm)
+}
+
+sourceSets {
+    api {}
+    main {
+        compileClasspath += api.output
+        runtimeClasspath += api.output
+    }
+}
+
+configurations {
+    spawns {
+        canBeConsumed = false
+        canBeResolved = false
+    }
+    apiApi.extendsFrom(spawns)
+    api.extendsFrom(spawns)
+}
+
+dependencies {
+    spawns project(path: ':spells', configuration: 'spawns')
+}
+
+kotlin {
+    jvmToolchain(8)
+}

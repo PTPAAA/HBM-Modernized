@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "nucleartech",
+    "name": "Nuclear Tech Mod",
+    "description": "All the high quality nuclear bombs and machinery you can only find in this mod or in the older 1.7.10 version!\nThe mod with both quantity and quality ;D\nA recreation by MartinTheDragon of HbMinecraft's Nuclear Tech Mod.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://codeberg.org/MartinTheDragon/Nuclear-Tech-Mod-Remake",
+    "updateUrl": "https://www.ntmr.dev/raw/update.json",
+    "authorList": ["MartinTheDragon"],
+    "credits": "HbM: Did well...",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

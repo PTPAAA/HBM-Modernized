@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 MartinTheDragon <martin@ntmr.dev>
+# SPDX-License-Identifier: CC0-1.0
+
+[versions]
+kotlin = "2.2.0"
+sorcerer = "0.1.0"
+forge-gradle = "6.0.43"
+shadow = "8.3.5"
+
+[libraries]
+kotlin-compiler = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.7.1" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+sorcerer = { id = "dev.ntmr.sorcerer", version.ref = "sorcerer" }
+forge-gradle = { id = "net.minecraftforge.gradle", version.ref = "forge-gradle" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

@@ -1,0 +1,11 @@
+{
+  "trait": "nucleartech:polluting",
+  "tag": "#forge:gas",
+  "data": {
+    "burned": {
+      "soot": 2.0E-4,
+      "poison": 0.0,
+      "heavy_metal": 0.0
+    }
+  }
+}

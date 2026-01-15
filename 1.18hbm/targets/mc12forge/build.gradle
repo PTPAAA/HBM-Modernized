@@ -1,0 +1,126 @@
+/*
+SPDX-FileCopyrightText: 2019-2024 MartinTheDragon <martin@ntmr.dev>
+SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'net.minecraftforge.gradle'
+    id 'com.gradleup.shadow'
+}
+
+apply plugin: 'idea'
+
+version = "$minecraft_version-$modVersion" as Object
+archivesBaseName = "$modid"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+minecraft {
+    mappings channel: 'snapshot', version: "$mappings_version"
+
+    runs {
+        client {
+            workingDirectory file('run')
+
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                nucleartech {
+                    sources((SourceSet[]) [sourceSets.main])
+                }
+            }
+        }
+    }
+}
+
+configurations {
+    library
+    implementation.extendsFrom library
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
+}
+
+dependencies {
+//    implementation project(':core')
+//    library project(path: ':spells', configuration: 'spawns')
+    minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
+    library("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion") {
+        exclude group: 'org.jetbrains', module: 'annotations'
+    }
+}
+
+jar {
+    dependsOn(classes)
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE) // is this bad? i dunno
+
+    from([/*sourceSets.api.output, */sourceSets.main.output])
+
+//    configurations {shaded.extendsFrom library}
+//    from { configurations.shaded.collect() { it.isDirectory() ? it : zipTree(it) }}
+
+    archiveClassifier.set("slim")
+
+    manifest.attributes(project.modManifestAttribs())
+    exclude '**/module-info.class' // remove java 9 module system for java 8 mods
+    afterEvaluate { finalizedBy reobfJar }
+}
+
+shadowJar {
+    archiveClassifier.set("")
+    configurations = [project.configurations.library]
+
+    from([/*sourceSets.api.output, */sourceSets.main.output])
+
+    def relocation = "${project.group}.relocated"
+
+    relocate "kotlin", "${relocation}.kotlin"
+    relocate "org.intellij", "${relocation}.intellij"
+    relocate "org.jetbrains", "${relocation}.jetbrains"
+
+    exclude '**/module-info.class' // remove java 9 module system for java 8 mods
+
+    afterEvaluate { finalizedBy reobfShadowJar }
+}
+
+assemble.dependsOn shadowJar
+
+task sourcesJar(type: Jar, dependsOn: [classes/*, apiClasses*/]) {
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+    archiveClassifier.set("sources")
+    from([/*sourceSets.api.kotlin, */sourceSets.main.kotlin])
+    manifest.attributes(project.modManifestAttribs())
+}
+
+reobf {
+    jar { classpath.from(sourceSets.main.compileClasspath) }
+    shadowJar {}
+}
+
+/*
+opt-in=kotlin.RequiresOptIn - Enables usage of experimental APIs
+jvm-default=all - Generates defaults in interfaces for Java users
+lambdas=indy - Uses invokedynamic for lambdas instead of generating explicit classes
+no-call-assertions - Disables not-null assertions on Platform types (when calling Java code)
+no-param-assertions - Disables not-null assertions on method parameters given by Java code
+use-fast-jar-file-system - Uses an experimental implementation for faster compilation
+
+extended-compiler-checks - Gives some more information about things
+*/
+def kotlinCompilerArgs = ["-opt-in=kotlin.RequiresOptIn", "-Xjvm-default=all", "-Xlambdas=indy", "-Xno-call-assertions", "-Xno-param-assertions", "-Xuse-fast-jar-file-system"]
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += kotlinCompilerArgs
+    }
+}
+
+idea {
+    module {
+        excludeDirs += file('run')
+    }
+}

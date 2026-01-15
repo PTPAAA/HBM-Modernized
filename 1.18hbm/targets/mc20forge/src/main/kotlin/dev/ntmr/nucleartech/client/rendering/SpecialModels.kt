@@ -1,0 +1,170 @@
+/*
+ * SPDX-FileCopyrightText: 2025 MartinTheDragon <martin@ntmr.dev>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+package dev.ntmr.nucleartech.client.rendering
+
+import dev.ntmr.nucleartech.content.entity.missile.AbstractMissile
+import dev.ntmr.nucleartech.ntm
+import net.minecraft.client.renderer.block.model.ItemOverrides
+import net.minecraft.client.resources.model.BakedModel
+import net.minecraft.client.resources.model.BlockModelRotation
+import net.minecraft.client.resources.model.ModelBakery
+import net.minecraft.client.resources.model.UnbakedModel
+import net.minecraft.resources.ResourceLocation
+import net.minecraft.server.packs.resources.ResourceManager
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener
+import dev.ntmr.nucleartech.client.model.renderable.SimpleRenderable
+import java.util.function.Supplier
+import net.minecraft.client.Minecraft
+import net.minecraft.world.inventory.InventoryMenu
+
+@Suppress("unused")
+object SpecialModels : ResourceManagerReloadListener {
+    private val modelFunctions = mutableMapOf<ResourceLocation, (ResourceLocation) -> SimpleRenderable>()
+    private val bakedModelFunctions = mutableMapOf<ResourceLocation, (ResourceLocation) -> BakedModel>()
+
+    val ASSEMBLER_ARM = registerModel(modelLoc("assembler/arm"), simpleModel())
+    val ASSEMBLER_BODY = registerModel(modelLoc("assembler/body"), simpleModel())
+    val ASSEMBLER_COG = registerModel(modelLoc("assembler/cog"), simpleModel())
+    val ASSEMBLER_SLIDER = registerModel(modelLoc("assembler/slider"), simpleModel())
+    val CHEM_PLANT_BODY = registerModel(modelLoc("chem_plant/body"), simpleModel())
+    val CHEM_PLANT_FLUID = registerBakedModel(modelLoc("chem_plant/fluid"), bakedModel())
+    val CHEM_PLANT_FLUID_CAP = registerBakedModel(modelLoc("chem_plant/fluid_cap"), bakedModel())
+    val CHEM_PLANT_PISTON = registerModel(modelLoc("chem_plant/piston"), simpleModel())
+    val CHEM_PLANT_SPINNER = registerModel(modelLoc("chem_plant/spinner"), simpleModel())
+    val CENTRIFUGE = registerModel(modelLoc("centrifuge/centrifuge"), simpleModel())
+    val COOLING_TOWER_LARGE = registerModel(modelLoc("large_cooling_tower/large_cooling_tower"), simpleModel())
+    val COOLING_TOWER_SMALL = registerModel(modelLoc("small_cooling_tower/small_cooling_tower"), simpleModel())
+    val FAT_MAN = registerModel(modelLoc("fat_man/fat_man"), simpleModel())
+    val LAUNCH_PAD = registerModel(modelLoc("launch_pad/launch_pad"), simpleModel())
+    val LITTLE_BOY = registerModel(modelLoc("little_boy/little_boy"), simpleModel())
+    val MISSILE_HUGE = registerBakedModel(AbstractMissile.MODEL_MISSILE_HUGE, bakedModel())
+    val MISSILE_NUCLEAR = registerBakedModel(modelLoc("missiles/missile_nuclear"), bakedModel())
+    val MISSILE_STRONG = registerBakedModel(AbstractMissile.MODEL_MISSILE_STRONG, bakedModel())
+    val MISSILE_V2 = registerBakedModel(AbstractMissile.MODEL_MISSILE_V2, bakedModel())
+    val MUSHROOM_CLOUD = registerBakedModel(modelLoc("mushroom_cloud/mush"), bakedModel())
+    val OIL_DERRICK = registerModel(modelLoc("oil_derrick/oil_derrick"), simpleModel())
+    val PUMPJACK = registerModel(modelLoc("pumpjack/pumpjack"), simpleModel())
+    val RBMK_COMMON_COLUMN = registerBakedModel(modelLoc("rbmk/column"), bakedModel())
+    val RBMK_CONSOLE = registerModel(modelLoc("rbmk/console"), simpleModel())
+    val RBMK_CONTROL_ROD_COLUMN = registerBakedModel(modelLoc("rbmk/control_rod_column"), bakedModel())
+    val RBMK_CONTROL_ROD_LID = registerBakedModel(modelLoc("rbmk/control_rod_lid"), bakedModel())
+    val RBMK_DEBRIS_BLANK = registerModel(modelLoc("rbmk/blank_debris"), simpleModel(ntm("other/rbmk/blank")))
+    val RBMK_DEBRIS_ELEMENT = registerModel(modelLoc("rbmk/element_debris"), simpleModel(ntm("other/rbmk/rods")))
+    val RBMK_DEBRIS_FUEL = registerModel(modelLoc("rbmk/fuel_debris"), simpleModel(ntm("other/rbmk/rods")))
+    val RBMK_DEBRIS_GRAPHITE = registerModel(modelLoc("rbmk/graphite_debris"), simpleModel(ntm("block/graphite_block")))
+    val RBMK_DEBRIS_ROD = registerModel(modelLoc("rbmk/rod_debris"), simpleModel(ntm("other/rbmk/manual_control")))
+    val RBMK_DEBRIS_LID = registerModel(modelLoc("rbmk/lid_debris"), simpleModel(ntm("other/rbmk/blank")))
+    val RBMK_LID = registerBakedModel(modelLoc("rbmk/lid"), bakedModel())
+    val RBMK_ROD_COLUMN = registerBakedModel(modelLoc("rbmk/rod_column"), bakedModel())
+    val RBMK_ROD_RODS = registerModel(modelLoc("rbmk/rods"), simpleModel())
+
+    private fun modelLoc(path: String) = ntm("models/other/$path.obj")
+
+    private fun simpleModel(detectCullableFaces: Boolean = false, diffuseLighting: Boolean = false, flipV: Boolean = true, ambientToFullbright: Boolean = true, materialLibraryOverrideLocation: String? = null): (ResourceLocation) -> SimpleRenderable =
+        { id -> 
+            object : SimpleRenderable {
+                override fun getOverrides() = ItemOverrides.EMPTY
+                override fun useAmbientOcclusion() = true
+                override fun isGui3d() = true
+                override fun usesBlockLight() = true
+                override fun isCustomRenderer() = false
+                override fun getParticleIcon() = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(ResourceLocation(id.namespace, "block/" + id.path.removeSuffix(".obj")))
+                override fun getTransforms() = net.minecraft.client.renderer.block.model.ItemTransforms.NO_TRANSFORMS
+                override fun getQuads(state: net.minecraft.world.level.block.state.BlockState?, side: net.minecraft.core.Direction?, rand: net.minecraft.util.RandomSource) = emptyList<net.minecraft.client.renderer.block.model.BakedQuad>()
+
+                override fun render(
+                    matrix: com.mojang.blaze3d.vertex.PoseStack,
+                    buffers: net.minecraft.client.renderer.MultiBufferSource,
+                    renderTypeGetter: (ResourceLocation) -> net.minecraft.client.renderer.RenderType,
+                    light: Int,
+                    overlay: Int,
+                    partials: Float,
+                    transforms: dev.ntmr.nucleartech.client.model.renderable.MultipartTransforms
+                ) {
+                    // TODO: Reimplement OBJ rendering
+                }
+            }
+        }
+
+    private fun simpleModel(textureLocation: ResourceLocation, detectCullableFaces: Boolean = false, diffuseLighting: Boolean = false, flipV: Boolean = true, ambientToFullbright: Boolean = true, materialLibraryOverrideLocation: String? = null): (ResourceLocation) -> SimpleRenderable =
+        simpleModel(detectCullableFaces, diffuseLighting, flipV, ambientToFullbright, materialLibraryOverrideLocation)
+
+    private fun bakedModel(detectCullableFaces: Boolean = false, diffuseLighting: Boolean = false, flipV: Boolean = true, ambientToFullbright: Boolean = true, materialLibraryOverrideLocation: String? = null): (ResourceLocation) -> BakedModel =
+        { id -> simpleModel(detectCullableFaces, diffuseLighting, flipV, ambientToFullbright, materialLibraryOverrideLocation)(id) as BakedModel }
+
+    private val modelCache = mutableMapOf<ResourceLocation, SimpleRenderable>()
+    private val bakedModelCache = mutableMapOf<ResourceLocation, BakedModel>()
+
+    fun registerModel(id: ResourceLocation, modelFunction: (ResourceLocation) -> SimpleRenderable): SimpleModelReference {
+        modelFunctions[id] = modelFunction
+        return SimpleModelReference(id)
+    }
+
+    fun getModel(id: ResourceLocation) = modelCache.computeIfAbsent(id, modelFunctions.getValue(id))
+    fun hasModel(id: ResourceLocation) = modelFunctions.containsKey(id)
+    fun getOrRegisterModel(id: ResourceLocation, modelFunction: (ResourceLocation) -> SimpleRenderable): SimpleRenderable {
+        if (!hasModel(id)) registerModel(id, modelFunction)
+        return getModel(id)
+    }
+
+    fun registerBakedModel(id: ResourceLocation, bakedModelFunction: (ResourceLocation) -> BakedModel): BakedModelReference {
+        bakedModelFunctions[id] = bakedModelFunction
+        return BakedModelReference(id)
+    }
+
+    fun getBakedModel(id: ResourceLocation) = bakedModelCache.computeIfAbsent(id, bakedModelFunctions.getValue(id))
+    fun hasBakedModel(id: ResourceLocation) = bakedModelFunctions.containsKey(id)
+    fun getOrRegisterBakedModel(id: ResourceLocation, bakedModelFunction: (ResourceLocation) -> BakedModel): BakedModel {
+        if (!hasBakedModel(id)) registerBakedModel(id, bakedModelFunction)
+        return getBakedModel(id)
+    }
+
+    override fun onResourceManagerReload(manager: ResourceManager) {
+        modelCache.clear()
+        bakedModelCache.clear()
+        modelCache.putAll(modelFunctions.mapValues { (id, function) -> function(id) })
+        bakedModelCache.putAll(bakedModelFunctions.mapValues { (id, function) -> function(id) })
+    }
+
+    fun registerAdditionalModels(event: net.minecraftforge.client.event.ModelEvent.RegisterAdditional) {
+        // Register all model locations that we expect to load from assets
+        // If the model is purely procedural, we might skip this unless we want a fallback.
+        // For now, register everything to be safe.
+        // Note: RegisterAdditional expects resource locations of models to load.
+        // If our models are NOT in assets/models/..., this might warn.
+        // But SpecialModels uses .obj paths which presumably exist.
+        modelFunctions.keys.forEach { event.register(it) }
+        bakedModelFunctions.keys.forEach { event.register(it) }
+    }
+
+    fun onModelBakingCompleted(event: net.minecraftforge.client.event.ModelEvent.ModifyBakingResult) {
+        // Inject our custom models into the registry
+        // This replaces injectIntoModelBakery
+        modelFunctions.forEach { (id, _) ->
+            // Use computeIfAbsent in case the model wasn't loaded by vanilla logic (e.g. missing file)
+            // But here we want to OVERRIDE or PROVIDE our own instance?
+            // The simplified 'simpleModel' implementations return an instance.
+            // We should use that instance.
+            val model = getModel(id) // Ensure it's in our cache
+            // We inject it into the registry.
+            // Note: SimpleRenderable implements BakedModel
+            event.models[id] = model
+        }
+
+        bakedModelFunctions.forEach { (id, _) ->
+            val model = getBakedModel(id)
+            event.models[id] = model
+        }
+    }
+
+    class SimpleModelReference(val id: ResourceLocation) : Supplier<SimpleRenderable> {
+        override fun get() = getModel(id)
+    }
+
+    class BakedModelReference(val id: ResourceLocation) : Supplier<BakedModel> {
+        override fun get() = getBakedModel(id)
+    }
+}

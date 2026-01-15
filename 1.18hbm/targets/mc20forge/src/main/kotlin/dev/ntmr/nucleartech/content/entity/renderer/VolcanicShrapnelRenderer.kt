@@ -1,0 +1,36 @@
+/*
+ * SPDX-FileCopyrightText: 2025 MartinTheDragon <martin@ntmr.dev>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+package dev.ntmr.nucleartech.content.entity.renderer
+
+import com.mojang.blaze3d.vertex.PoseStack
+import org.joml.Vector3f
+import dev.ntmr.nucleartech.client.rendering.NuclearModelLayers
+import dev.ntmr.nucleartech.content.entity.Shrapnel
+import net.minecraft.client.Minecraft
+import net.minecraft.client.renderer.LightTexture
+import net.minecraft.client.renderer.MultiBufferSource
+import net.minecraft.client.renderer.entity.EntityRendererProvider
+import net.minecraft.client.renderer.texture.OverlayTexture
+
+class VolcanicShrapnelRenderer(context: EntityRendererProvider.Context) : ShrapnelRenderer(context) {
+    private val rotationVector = Vector3f(1F, 1F, 1F).apply(Vector3f::normalize)
+    private val shrapnelModel = ShrapnelModel(Minecraft.getInstance().entityModels.bakeLayer(NuclearModelLayers.SHRAPNEL))
+
+    override fun render(shrapnel: Shrapnel, yaw: Float, partialTicks: Float, matrix: PoseStack, buffers: MultiBufferSource, light: Int) {
+        super.render(shrapnel, yaw, partialTicks, matrix, buffers, light)
+
+        matrix.pushPose()
+        matrix.mulPose(com.mojang.math.Axis.XP.rotationDegrees(180F))
+        val degrees = (shrapnel.tickCount % 360) * 10 + partialTicks
+        matrix.mulPose(org.joml.Quaternionf().setAngleAxis(Math.toRadians(degrees.toDouble()).toFloat(), rotationVector.x, rotationVector.y, rotationVector.z))
+        matrix.scale(3F, 3F, 3F) // scale up volcanic shrapnel
+
+        val consumer = buffers.getBuffer(shrapnelModel.renderType(getTextureLocation(shrapnel)))
+        shrapnelModel.renderToBuffer(matrix, consumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 1F, 1F, 1F, 1F)
+
+        matrix.popPose()
+    }
+}

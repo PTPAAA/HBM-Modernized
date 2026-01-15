@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2021-2024 MartinTheDragon <martin@ntmr.dev>
+# SPDX-License-Identifier: GFDL-1.3-or-later
+
+# Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation;
+# with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+# A copy of the license is included in the LICENSES directory of this project's root directory.
+
+contact_links:
+    - name: NTM 1.18 Discord
+      url: https://discord.gg/XDrARD2FaJ
+      about: Just got a quick question? Join the Discord server dedicated to the 1.18 port, unaffiliated with the official NTM Discord.
+    - name: Other contact options
+      url: https://codeberg.org/MartinTheDragon/Nuclear-Tech-Mod-Remake/src/branch/main/CONTACT.md
+      about: Don't have Discord (maybe because you consider privacy important), or perhaps even a security bug? There are other options available!

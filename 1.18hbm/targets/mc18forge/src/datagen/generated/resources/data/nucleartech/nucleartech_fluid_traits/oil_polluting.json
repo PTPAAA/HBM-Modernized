@@ -1,0 +1,16 @@
+{
+  "trait": "nucleartech:polluting",
+  "tag": "#forge:oil",
+  "data": {
+    "burned": {
+      "soot": 0.004,
+      "poison": 0.0,
+      "heavy_metal": 0.0
+    },
+    "spilled": {
+      "soot": 0.0,
+      "poison": 5.0E-5,
+      "heavy_metal": 0.0
+    }
+  }
+}
